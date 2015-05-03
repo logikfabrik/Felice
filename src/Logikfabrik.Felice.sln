@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8F785F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logikfabrik.Felice", "Logikfabrik.Felice\Logikfabrik.Felice.csproj", "{BDF141C9-4C23-4A3F-9445-503E8B1F3E08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco", "Umbraco\Umbraco.csproj", "{FABF91FD-23E6-4F0A-AC1A-999FECC9B629}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,10 +28,6 @@ Global
 		{BDF141C9-4C23-4A3F-9445-503E8B1F3E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF141C9-4C23-4A3F-9445-503E8B1F3E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDF141C9-4C23-4A3F-9445-503E8B1F3E08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FABF91FD-23E6-4F0A-AC1A-999FECC9B629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FABF91FD-23E6-4F0A-AC1A-999FECC9B629}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FABF91FD-23E6-4F0A-AC1A-999FECC9B629}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FABF91FD-23E6-4F0A-AC1A-999FECC9B629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
