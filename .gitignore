@@ -183,4 +183,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 # Umbraco staging projects
-Umbraco/
+# Umbraco/
