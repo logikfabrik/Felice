@@ -60,10 +60,13 @@ namespace Logikfabrik.Felice.Helpers
                 ? null
                 : homePage.GetDescendants<LunchMenus>().SingleOrDefault();
 
-            var menus = lunchMenus == null
-                ? new LunchMenu[] { }
-                : lunchMenus.GetChildren<LunchMenu>()
-                    .Select(menu => documentService.GetDocument<LunchMenu>(menu.GetContent())).ToArray();
+            if (lunchMenus == null)
+                return new LunchMenu[] { };
+
+            var menus =
+                lunchMenus.GetChildren<LunchMenu>()
+                    .Select(menu => documentService.GetDocument<LunchMenu>(menu.GetContent()))
+                    .ToArray();
 
             var lunchMenusPage = documentService.GetDocument<LunchMenus>(lunchMenus.GetContent());
 
