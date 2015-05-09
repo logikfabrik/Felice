@@ -1,0 +1,88 @@
+﻿.opening-hours {
+    line-height: 30px;
+}
+
+    .opening-hours a {
+        text-decoration: none;
+        cursor: pointer;
+        border-style: solid;
+        border-color: #ccc;
+        padding: 4px 6px;
+        background: #f8f8f8;
+    }
+
+        .opening-hours a:hover {
+            background: #fff;
+        }
+
+    .opening-hours ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .opening-hours li {
+        border: 1px solid #ccc;
+        /* ReSharper disable once CssBrowserCompatibility */
+        border-radius: 2px;
+        margin: 0 0 5px;
+    }
+
+        .opening-hours li a {
+            border-width: 0 1px 0 0;
+            display: inline-block;
+            margin: 0 5px 0 0;
+        }
+
+    .opening-hours .opening-hour {
+        border: 1px solid #ccc;
+        /* ReSharper disable once CssBrowserCompatibility */
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+        .opening-hours .opening-hour a {
+            border-width: 1px;
+            /* ReSharper disable once CssBrowserCompatibility */
+            border-radius: 2px;
+        }
+
+        .opening-hours .opening-hour .setting {
+            padding: 0 0 5px;
+            margin: 0 0 5px;
+            border-style: solid;
+            border-color: #f8f8f8;
+            border-width: 0 0 1px;
+        }
+
+            .opening-hours .opening-hour .setting label {
+                padding: 0;
+                margin: 0;
+                width: 110px;
+            }
+
+            .opening-hours .opening-hour .setting input[type=radio] {
+                vertical-align: middle;
+                margin: -3px 0 0;
+            }
+
+                .opening-hours .opening-hour .setting input[type=radio] + label {
+                    width: 60px;
+                }
+
+                .opening-hours .opening-hour .setting input[type=radio] + label:last-of-type {
+                    width: auto;
+                }
+
+            .opening-hours .opening-hour .setting div {
+                display: inline-block;
+            }
+
+                .opening-hours .opening-hour .setting div label {
+                    text-align: right;
+                    width: 40px;
+                }
+
+                .opening-hours .opening-hour .setting div select {
+                    width: 60px;
+                }

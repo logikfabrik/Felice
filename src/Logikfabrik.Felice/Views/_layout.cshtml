@@ -1,0 +1,42 @@
+﻿@model Logikfabrik.Felice.ViewModels.BasePageViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.HeadFor(Model)
+    <title>@Model.Name - Restaurang Felicé</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic">
+    @Styles.Render("~/Assets/CommonCss")
+</head>
+<body data-ng-app="Felice">
+    <header>
+        <nav>
+            @{
+                Html.RenderAction("MainMenu", "Menu");
+            }
+        </nav>
+        <ul>
+            <li><img src="~/Assets/img/img-1.png" alt="" /></li>
+            <li><img src="~/Assets/img/img-2.png" alt="" /></li>
+            <li><img src="~/Assets/img/img-3.png" alt="" /></li>
+        </ul>
+        <h1>Restaurang Felicé</h1>
+    </header>
+
+    <article>
+        @RenderBody()
+    </article>
+
+    <footer>
+        <ul>
+            <li>Restaurang Felicé</li>
+            <li><address>@Model.Address</address></li>
+            <li>tfn. <a href="tel:@System.Text.RegularExpressions.Regex.Replace(Model.PhoneNumber, @"[^\d]", string.Empty)">@Model.PhoneNumber</a></li>
+        </ul>
+    </footer>
+
+    @Scripts.Render("~/Assets/CommonJs")
+    <script src="//maps.google.com/maps/api/js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿@black: #232020;
+
+html {
+    font-family: "Droid Serif", serif;
+    font-size: 18px;
+}
+
+body {
+    color: @black;
+    background: url("../../img/bg.png");
+    padding: 36px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, p {
+    padding: 0;
+    margin: 0 0 6px;
+}
+
+a {
+    color: @black;
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+
+    li {
+        margin: 0 6px;
+        display: inline-block;
+    }
+}
+
+header, article, footer {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+article {
+    .opening-hours-of-the-day, .dish-of-the-day, .menu-of-the-week {
+        margin: 36px 0;
+
+        h4 {
+            text-transform: uppercase;
+            border-color: @black;
+            border-style: solid;
+            border-width: 1px 0;
+            display: inline-block;
+            padding: 3px 6px;
+            font-size: .8em;
+        }
+
+        p:first-of-type {
+            font-size: 1.2em;
+        }
+    }
+
+    .dish-of-the-day {
+        h2 {
+            font-style: italic;
+            font-size: 3.6em;
+        }
+    }
+
+    .menu-of-the-week {
+        ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin: 36px 0;
+
+                p {
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    font-size: .8em;
+    font-style: italic;
+
+    ul {
+        padding: 3px 0 0;
+        border-style: dotted;
+        border-color: @black;
+        border-width: 1px 0 0;
+    }
+}

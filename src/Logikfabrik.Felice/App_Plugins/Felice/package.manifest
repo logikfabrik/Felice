@@ -1,0 +1,22 @@
+﻿{   
+    propertyEditors: [      
+        {
+            alias: "OpeningHours",
+            name: "Opening Hours",
+            editor: {
+                view: "~/App_Plugins/Felice/assets/js/app/components/openingHours/openingHoursView.html",
+                valueType: "JSON" 
+            }
+        }
+    ],
+    javascript: [
+        '~/App_Plugins/Felice/assets/js/vendor/lodash-2.4.1/lodash.js',
+        '~/App_Plugins/Felice/assets/js/vendor/sprintf/sprintf.min.js',
+        '~/App_Plugins/Felice/assets/js/app/factories/lodashFactory.js',
+        '~/App_Plugins/Felice/assets/js/app/factories/sprintfFactory.js',
+        '~/App_Plugins/Felice/assets/js/app/components/openingHours/openingHoursController.js'
+    ],
+    css: [
+        '~/App_Plugins/Felice/assets/js/app/components/openingHours/openingHoursStyle.css'
+    ]
+}

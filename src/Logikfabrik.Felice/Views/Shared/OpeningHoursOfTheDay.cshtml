@@ -1,0 +1,13 @@
+﻿<section class="opening-hours-of-the-day" data-ng-controller="openingHoursOfTheDayController" data-ng-cloak>
+    <h4>Öppettider idag</h4>
+    <div ng-switch on="hasOpeningHours()">
+        <div ng-switch-when="true">
+            <p>kl. {{openingHours.From}} - {{openingHours.To}}</p>
+            <p>Välkomna</p>
+        </div>
+        <div ng-switch-when="false">
+            <p>Stängt</p>
+            <p>Välkomna åter</p>
+        </div>
+    </div>
+</section>
