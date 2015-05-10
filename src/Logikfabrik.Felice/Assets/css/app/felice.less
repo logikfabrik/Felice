@@ -1,4 +1,5 @@
 ﻿@black: #232020;
+@blue: #b9e5fb;
 
 html {
     font-family: "Droid Serif", serif;
@@ -35,7 +36,7 @@ ul {
     padding: 0;
 
     li {
-        margin: 0 6px;
+        margin: 3px 6px;
         display: inline-block;
     }
 }
@@ -45,6 +46,10 @@ header, article, footer {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+header > img {
+    display: none;
 }
 
 article {
@@ -93,11 +98,48 @@ article {
 footer {
     font-size: .8em;
     font-style: italic;
+}
 
-    ul {
-        padding: 3px 0 0;
-        border-style: dotted;
-        border-color: @black;
-        border-width: 1px 0 0;
+/* Tablets (portrait and landscape) */
+@media only screen and (min-width: 480px) and (max-width: 760px) {
+    header > ul {
+        display: none;
+    }
+
+    header > img {
+        display: inline-block;
+    }
+
+    header {
+        nav {
+            //background: @blue;
+        }
+    }
+
+    footer {
+        ul li:first-of-type {
+            display: none;
+        }
+    }
+}
+
+/* Smartphones (portrait and landscape) */
+@media only screen and (max-width: 480px) {
+    header > ul {
+        display: none;
+    }
+
+    header > img {
+        display: inline-block;
+    }
+
+    footer {
+        ul li {
+            display: block;
+        }
+
+        ul li:first-of-type {
+            display: none;
+        }
     }
 }

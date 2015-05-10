@@ -18,7 +18,7 @@ namespace Logikfabrik.Felice.Helpers
             if (dateHelper == null)
                 throw new ArgumentNullException("dateHelper");
 
-            settingsHelper = new SettingsHelper(pageHelper);
+            this.settingsHelper = new SettingsHelper(pageHelper);
             this.dateHelper = dateHelper;
         }
         
@@ -40,7 +40,6 @@ namespace Logikfabrik.Felice.Helpers
         public Hours GetOpeningHoursOfTheDay(DateTime date)
         {
             // Opening hours for specific dates takes precedence.
-
             var openingHours = settingsHelper.GetOpeningHours().Where(h => IsForDate(h, date)).ToArray();
 
             var hours = openingHours.Any(h => h.Date.HasValue)
