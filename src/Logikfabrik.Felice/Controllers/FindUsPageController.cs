@@ -1,7 +1,8 @@
-﻿using Logikfabrik.Felice.Models;
+﻿using System.Web.Mvc;
+using AutoMapper;
+using Logikfabrik.Felice.Models;
 using Logikfabrik.Felice.ViewModels;
 using Logikfabrik.Umbraco.Jet.Web.Mvc;
-using System.Web.Mvc;
 
 namespace Logikfabrik.Felice.Controllers
 {
@@ -9,7 +10,7 @@ namespace Logikfabrik.Felice.Controllers
     {
         public ActionResult Index(FindUsPage model)
         {
-            var jm = AutoMapper.Mapper.Map<FindUsPageViewModel>(model);
+            var jm = Mapper.Map<FindUsPageViewModel>(model);
 
             return View(jm);
         }

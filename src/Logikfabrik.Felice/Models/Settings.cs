@@ -1,6 +1,6 @@
-﻿using Logikfabrik.Umbraco.Jet;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Logikfabrik.Felice.DataTypes;
+using Logikfabrik.Umbraco.Jet;
 using Logikfabrik.Umbraco.Jet.Maps;
 
 namespace Logikfabrik.Felice.Models
@@ -38,7 +38,7 @@ namespace Logikfabrik.Felice.Models
         /// Gets or sets the opening hours.
         /// </summary>
         [Display(Name = "Opening hours", GroupName = "Opening hours")]
-        public IEnumerable<OpeningHours> OpeningHours { get; set; }
+        public OpeningHours OpeningHours { get; set; }
 
         /// <summary>
         /// Gets or sets the map coordinates.

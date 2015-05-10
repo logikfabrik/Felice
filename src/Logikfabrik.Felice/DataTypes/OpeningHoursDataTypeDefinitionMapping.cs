@@ -1,7 +1,6 @@
-﻿using Logikfabrik.Umbraco.Jet.Mappings;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using Logikfabrik.Umbraco.Jet.Mappings;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 
@@ -26,7 +25,7 @@ namespace Logikfabrik.Felice.DataTypes
 
         protected override Type[] SupportedTypes
         {
-            get { return new[] { typeof(IEnumerable<Models.OpeningHours>) }; }
+            get { return new[] { typeof(OpeningHours) }; }
         }
     }
 }

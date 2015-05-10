@@ -1,6 +1,6 @@
-﻿using Logikfabrik.Felice.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Logikfabrik.Felice.DataTypes;
+using Logikfabrik.Felice.Models;
 
 namespace Logikfabrik.Felice.Helpers
 {
@@ -56,14 +56,14 @@ namespace Logikfabrik.Felice.Helpers
         /// Gets the opening hours.
         /// </summary>
         /// <returns>The opening hours.</returns>
-        public IEnumerable<OpeningHours> GetOpeningHours()
+        public OpeningHours GetOpeningHours()
         {
             if (settings.Value == null)
-                return new OpeningHours[] { };
+                return new OpeningHours();
 
             var openingHours = settings.Value.OpeningHours;
 
-            return openingHours ?? new OpeningHours[] { };
+            return openingHours ?? new OpeningHours();
         }
     }
 }

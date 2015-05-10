@@ -1,8 +1,7 @@
-﻿using Logikfabrik.Umbraco.Jet.Web.Data.Converters;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Logikfabrik.Umbraco.Jet.Web.Data.Converters;
+using Newtonsoft.Json;
 
 namespace Logikfabrik.Felice.DataTypes
 {
@@ -10,7 +9,7 @@ namespace Logikfabrik.Felice.DataTypes
     {
         public bool CanConvertValue(string uiHint, Type from, Type to)
         {
-            return uiHint == OpeningHours.Editor && from == typeof(JArray) && to == typeof(IEnumerable<Models.OpeningHours>);
+            return uiHint == OpeningHours.Editor || to == typeof(OpeningHours);
         }
 
         private static TimeSpan? GetHours(dynamic json)
@@ -27,11 +26,11 @@ namespace Logikfabrik.Felice.DataTypes
         public object Convert(object value, Type to)
         {
             if (value == null)
-                return new Models.OpeningHours[] { };
+                return new OpeningHours[] { };
 
             var json = JsonConvert.DeserializeObject<IEnumerable<dynamic>>(value.ToString());
 
-            var openingHours = new List<Models.OpeningHours>();
+            var openingHours = new OpeningHours();
 
             foreach (var item in json)
             {
@@ -43,10 +42,10 @@ namespace Logikfabrik.Felice.DataTypes
                 switch (type)
                 {
                     case "date":
-                        openingHours.Add(new Models.OpeningHours(name, (DateTime)item.date, hoursFrom, hoursTo));
+                        openingHours.Add(new OpeningHour(name, (DateTime)item.date, hoursFrom, hoursTo));
                         break;
                     case "dayOfWeek":
-                        openingHours.Add(new Models.OpeningHours(name, (DayOfWeek)item.dayOfWeek, hoursFrom, hoursTo));
+                        openingHours.Add(new OpeningHour(name, (DayOfWeek)item.dayOfWeek, hoursFrom, hoursTo));
                         break;
                     default:
                         throw new NotSupportedException(string.Format("Type {0} is not supported.", type));

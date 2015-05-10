@@ -1,6 +1,6 @@
-﻿using Logikfabrik.Felice.Helpers;
-using System;
+﻿using System;
 using System.Web.Mvc;
+using Logikfabrik.Felice.Helpers;
 using Umbraco.Web.WebApi;
 
 namespace Logikfabrik.Felice.Controllers

@@ -276,6 +276,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OpeningHoursController.cs" />
+    <Compile Include="DataTypes\OpeningHour.cs" />
     <Compile Include="DataTypes\OpeningHours.cs" />
     <Compile Include="DataTypes\OpeningHoursConverter.cs" />
     <Compile Include="DataTypes\OpeningHoursDataTypeDefinitionMapping.cs" />
@@ -300,7 +301,6 @@
     <Compile Include="Models\LunchMenus.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuDish.cs" />
-    <Compile Include="Models\OpeningHours.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\StandardPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,8 @@
-﻿using Logikfabrik.Felice.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Logikfabrik.Felice.DataTypes;
+using Logikfabrik.Felice.Models;
 
 namespace Logikfabrik.Felice.Helpers
 {
@@ -40,7 +41,7 @@ namespace Logikfabrik.Felice.Helpers
         public Hours GetOpeningHoursOfTheDay(DateTime date)
         {
             // Opening hours for specific dates takes precedence.
-            var openingHours = settingsHelper.GetOpeningHours().Where(h => IsForDate(h, date)).ToArray();
+            var openingHours = this.settingsHelper.GetOpeningHours().Where(h => IsForDate(h, date)).ToArray();
 
             var hours = openingHours.Any(h => h.Date.HasValue)
                 ? openingHours.First(h => h.Date.HasValue)
@@ -62,7 +63,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <param name="openingHours"></param>
         /// <param name="date">The current date.</param>
         /// <returns>True it the opening hours are for the current date; otherwise false.</returns>
-        public bool IsForDate(OpeningHours openingHours, DateTime date)
+        public bool IsForDate(OpeningHour openingHours, DateTime date)
         {
             if (openingHours == null)
                 throw new ArgumentNullException("openingHours");
@@ -73,7 +74,7 @@ namespace Logikfabrik.Felice.Helpers
             return IsBetweenDaysOfWeek(openingHours, date);
         }
 
-        private bool IsBetweenDaysOfWeek(OpeningHours openingHours, DateTime date)
+        private bool IsBetweenDaysOfWeek(OpeningHour openingHours, DateTime date)
         {
             if (openingHours == null)
                 throw new ArgumentNullException("openingHours");

@@ -1,10 +1,11 @@
-﻿using Logikfabrik.Felice.Extensions;
-using Logikfabrik.Felice.Models;
-using Logikfabrik.Felice.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
+using Logikfabrik.Felice.Extensions;
+using Logikfabrik.Felice.Models;
+using Logikfabrik.Felice.ViewModels;
 using umbraco;
 using umbraco.interfaces;
 using umbraco.NodeFactory;
@@ -38,7 +39,7 @@ namespace Logikfabrik.Felice.Controllers
             return
                 PartialView(home == null
                     ? new MenuItemViewModel[] {}
-                    : AutoMapper.Mapper.Map<IEnumerable<MenuItemViewModel>>(
+                    : Mapper.Map<IEnumerable<MenuItemViewModel>>(
                         home.GetChildNodes().Where(ShowInMenu)));
         }
     }

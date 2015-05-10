@@ -1,6 +1,6 @@
-﻿using Logikfabrik.Umbraco.Jet;
+﻿using System.ComponentModel.DataAnnotations;
+using Logikfabrik.Umbraco.Jet;
 using Logikfabrik.Umbraco.Jet.Web.Mvc;
-using System.ComponentModel.DataAnnotations;
 
 namespace Logikfabrik.Felice.Models
 {

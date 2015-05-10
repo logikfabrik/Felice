@@ -1,9 +1,10 @@
-﻿using Logikfabrik.Felice.Helpers;
+﻿using System;
+using System.Web.Mvc;
+using AutoMapper;
+using Logikfabrik.Felice.Helpers;
 using Logikfabrik.Felice.Models;
 using Logikfabrik.Felice.ViewModels;
 using Logikfabrik.Umbraco.Jet.Web.Mvc;
-using System;
-using System.Web.Mvc;
 
 namespace Logikfabrik.Felice.Controllers
 {
@@ -26,13 +27,13 @@ namespace Logikfabrik.Felice.Controllers
 
         public ActionResult Index(EatWithUsPage model)
         {
-            var jm = AutoMapper.Mapper.Map<EatWithUsPageViewModel>(model);
+            var jm = Mapper.Map<EatWithUsPageViewModel>(model);
             var menu = lunchMenuHelper.GetMenuOfTheWeek(DateTime.Now);
 
             jm.HasMenu = menu != null;
 
             if (menu != null)
-                AutoMapper.Mapper.Map(menu, jm);
+                Mapper.Map(menu, jm);
 
             return View(jm);
         }

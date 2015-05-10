@@ -1,5 +1,5 @@
-﻿using Logikfabrik.Umbraco.Jet;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Logikfabrik.Umbraco.Jet;
 
 namespace Logikfabrik.Felice.Models
 {

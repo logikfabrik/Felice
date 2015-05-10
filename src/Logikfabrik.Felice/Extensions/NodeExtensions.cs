@@ -1,7 +1,7 @@
-﻿using Logikfabrik.Umbraco.Jet.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Logikfabrik.Umbraco.Jet.Extensions;
 using umbraco;
 using umbraco.interfaces;
 using Umbraco.Core.Models;

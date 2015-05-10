@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Logikfabrik.Felice.Helpers;
 using Logikfabrik.Felice.Models;
 using Logikfabrik.Felice.ViewModels;
-using System;
 using umbraco.interfaces;
 
 namespace Logikfabrik.Felice

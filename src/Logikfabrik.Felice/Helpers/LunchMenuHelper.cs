@@ -1,6 +1,6 @@
-﻿using Logikfabrik.Felice.Models;
-using System;
+﻿using System;
 using System.Linq;
+using Logikfabrik.Felice.Models;
 
 namespace Logikfabrik.Felice.Helpers
 {

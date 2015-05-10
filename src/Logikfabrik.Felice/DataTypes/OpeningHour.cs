@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Logikfabrik.Felice.Models
+namespace Logikfabrik.Felice.DataTypes
 {
-    public class OpeningHours
+    public class OpeningHour
     {
         private readonly string name;
         private readonly DayOfWeek? dayOfWeek;
@@ -10,19 +10,19 @@ namespace Logikfabrik.Felice.Models
         private readonly TimeSpan from;
         private readonly TimeSpan to;
 
-        public OpeningHours(string name, DayOfWeek dayOfWeek, TimeSpan from, TimeSpan to)
+        public OpeningHour(string name, DayOfWeek dayOfWeek, TimeSpan from, TimeSpan to)
             : this(name, from, to)
         {
             this.dayOfWeek = dayOfWeek;
         }
 
-        public OpeningHours(string name, DateTime date, TimeSpan from, TimeSpan to)
+        public OpeningHour(string name, DateTime date, TimeSpan from, TimeSpan to)
             : this(name, from, to)
         {
             this.date = date;
         }
 
-        private OpeningHours(string name, TimeSpan from, TimeSpan to)
+        private OpeningHour(string name, TimeSpan from, TimeSpan to)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Name cannot be null or white space.", "name");
