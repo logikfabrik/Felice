@@ -7,7 +7,8 @@ namespace Logikfabrik.Felice.Models
 {
     [DocumentType(
         "Settings",
-        Description = "Site settings")]
+        Description = "Site settings",
+        Icon = "icon-settings")]
     public class Settings
     {
         /// <summary>

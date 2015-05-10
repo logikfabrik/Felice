@@ -14,7 +14,8 @@ namespace Logikfabrik.Felice.Models
             typeof(Menu),
             typeof(EatWithUsPage),
             typeof(FindUsPage)
-        })]
+        },
+        Icon = "icon-home")]
     [PreviewTemplate]
     public class HomePage : BasePage
     {

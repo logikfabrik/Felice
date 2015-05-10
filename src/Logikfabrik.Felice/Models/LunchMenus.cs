@@ -5,7 +5,8 @@ namespace Logikfabrik.Felice.Models
     [DocumentType(
         "Lunch menus",
         Description = "Lunch menus",
-        AllowedChildNodeTypes = new[] { typeof(LunchMenu) })]
+        AllowedChildNodeTypes = new[] { typeof(LunchMenu) },
+        Icon = "icon-food")]
     public class LunchMenus
     {
         /// <summary>

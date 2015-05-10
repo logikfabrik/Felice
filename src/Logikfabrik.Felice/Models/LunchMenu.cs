@@ -5,7 +5,8 @@ namespace Logikfabrik.Felice.Models
 {
     [DocumentType(
         "Lunch menu",
-        Description = "A lunch menu for a full week")]
+        Description = "A lunch menu for a full week",
+        Icon = "icon-food")]
     public class LunchMenu
     {
         /// <summary>

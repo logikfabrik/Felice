@@ -7,7 +7,8 @@ namespace Logikfabrik.Felice.Models
     [DocumentType(
         "Standard page",
         Description = "Document type for a standard page",
-        AllowedChildNodeTypes = new[] { typeof(StandardPage) })]
+        AllowedChildNodeTypes = new[] { typeof(StandardPage) },
+        Icon = "icon-document")]
     [PreviewTemplate]
     public class StandardPage : BasePage
     {
