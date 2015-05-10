@@ -1,5 +1,7 @@
 ﻿@black: #232020;
+@white: #fff;
 @blue: #b9e5fb;
+@orange: #fcb040;
 
 html {
     font-family: "Droid Serif", serif;
@@ -9,7 +11,8 @@ html {
 body {
     color: @black;
     background: url("../../img/bg.png");
-    padding: 36px;
+    padding: 0;
+    text-align: center;
 }
 
 h1, h2, h3, h4, h5 {
@@ -23,11 +26,6 @@ h1, h2, h3, h4, h5, p {
 
 a {
     color: @black;
-    text-transform: uppercase;
-}
-
-a:hover {
-    text-decoration: none;
 }
 
 ul {
@@ -41,15 +39,38 @@ ul {
     }
 }
 
-header, article, footer {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+header {
+    > img, input, label {
+        display: none;
+    }
 
-header > img {
-    display: none;
+    label {
+        background: @orange;
+        padding: 12px;
+        margin: 0 0 18px;
+        cursor: pointer;
+    }
+
+    nav {
+        background: @blue;
+
+        ul {
+            li {
+                margin: 0;
+
+                a {
+                    display: block;
+                    padding: 12px;
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    background: @orange;
+                    color: @white;
+                }
+            }
+        }
+    }
 }
 
 article {
@@ -102,44 +123,94 @@ footer {
 
 /* Tablets (portrait and landscape) */
 @media only screen and (min-width: 480px) and (max-width: 760px) {
-    header > ul {
-        display: none;
-    }
-
-    header > img {
-        display: inline-block;
-    }
-
     header {
+        > img {
+            display: inline-block;
+        }
+
+        > ul {
+            display: none;
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type=checkbox]:not(:checked) ~ nav {
+            display: none;
+        }
+
+        input[type=checkbox]:checked ~ nav {
+            display: block;
+        }
+
+        input[type=checkbox]:checked + label {
+            margin: 0;
+        }
+
         nav {
-            //background: @blue;
+            ul {
+                li {
+                    display: block;
+                }
+            }
         }
     }
 
     footer {
-        ul li:first-of-type {
-            display: none;
+        ul {
+            li:first-of-type {
+                display: none;
+            }
         }
     }
 }
 
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 480px) {
-    header > ul {
-        display: none;
-    }
+    header {
+        > img {
+            display: inline-block;
+        }
 
-    header > img {
-        display: inline-block;
-    }
+        > ul {
+            display: none;
+        }
 
-    footer {
-        ul li {
+        label {
             display: block;
         }
 
-        ul li:first-of-type {
+        input[type=checkbox]:not(:checked) ~ nav {
             display: none;
+        }
+
+        input[type=checkbox]:checked ~ nav {
+            display: block;
+        }
+
+        input[type=checkbox]:checked + label {
+            margin: 0;
+        }
+
+        nav {
+            ul {
+                li {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    footer {
+        ul {
+            li {
+                display: block;
+            }
+
+            li:first-of-type {
+                display: none;
+            }
         }
     }
 }

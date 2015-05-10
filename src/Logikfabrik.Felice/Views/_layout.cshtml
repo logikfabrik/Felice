@@ -11,6 +11,8 @@
 </head>
 <body data-ng-app="Felice">
     <header>
+        <input type="checkbox" id="toggle" />
+        <label for="toggle" onclick="">&#9776; Meny</label>
         <nav>
             @{
                 Html.RenderAction("MainMenu", "Menu");
