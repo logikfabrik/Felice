@@ -24,7 +24,7 @@ namespace Logikfabrik.Felice.Controllers
 
         public JsonResult GetOpeningHoursOfTheDay(DateTime date)
         {
-            var hours = openingHoursHelper.GetOpeningHoursOfTheDay(date);
+            var hours = this.openingHoursHelper.GetOpeningHoursOfTheDay(date);
 
             if (hours == null)
                 return new JsonResult { Data = new { } };

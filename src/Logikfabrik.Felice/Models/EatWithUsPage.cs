@@ -1,5 +1,4 @@
 ﻿using Logikfabrik.Umbraco.Jet;
-using Logikfabrik.Umbraco.Jet.Maps;
 using Logikfabrik.Umbraco.Jet.Web.Mvc;
 
 namespace Logikfabrik.Felice.Models
@@ -11,6 +10,5 @@ namespace Logikfabrik.Felice.Models
     [PreviewTemplate]
     public class EatWithUsPage : BasePage
     {
-        public GeoCoordinates Map { get; set; }
     }
 }

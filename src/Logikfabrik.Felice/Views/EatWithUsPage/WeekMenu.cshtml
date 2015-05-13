@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Logikfabrik.Felice.ViewModels.MenuItemViewModel>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.Url" title="@item.Name">@item.Name</a></li>
+    }
+</ul>

@@ -17,10 +17,14 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-weight: normal;
+    margin: 0 0 12px;
 }
 
 h1, h2, h3, h4, h5, p {
     padding: 0;
+}
+
+p {
     margin: 0 0 6px;
 }
 
@@ -40,7 +44,9 @@ ul {
 }
 
 header {
-    > img, input, label {
+    margin: 0 0 24px;
+
+    input, label {
         display: none;
     }
 
@@ -81,9 +87,9 @@ article {
             text-transform: uppercase;
             border-color: @black;
             border-style: solid;
-            border-width: 1px 0;
+            border-width: 1px 0 2px;
             display: inline-block;
-            padding: 3px 6px;
+            padding: 6px 36px;
             font-size: .8em;
         }
 
@@ -124,12 +130,10 @@ footer {
 /* Tablets (portrait and landscape) */
 @media only screen and (min-width: 480px) and (max-width: 760px) {
     header {
-        > img {
-            display: inline-block;
-        }
-
         > ul {
-            display: none;
+            li:nth-child(-n+2) {
+                display: none;
+            }
         }
 
         label {
@@ -169,12 +173,10 @@ footer {
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 480px) {
     header {
-        > img {
-            display: inline-block;
-        }
-
         > ul {
-            display: none;
+            li:nth-child(-n+2) {
+                display: none;
+            }
         }
 
         label {

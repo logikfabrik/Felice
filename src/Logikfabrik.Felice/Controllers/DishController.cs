@@ -29,7 +29,7 @@ namespace Logikfabrik.Felice.Controllers
             if (menu == null)
                 return new JsonResult { Data = new { } };
 
-            var dish = lunchMenuHelper.GetDishOfTheDay(date);
+            var dish = this.lunchMenuHelper.GetDishOfTheDay(date);
 
             if (dish == null)
                 return new JsonResult { Data = new { } };

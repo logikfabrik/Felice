@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Logikfabrik.Felice.Models;
 
@@ -43,6 +44,11 @@ namespace Logikfabrik.Felice.Helpers
         public LunchMenu GetMenuOfTheWeek(int year, int week)
         {
             return pageHelper.GetLunchMenus().FirstOrDefault(m => IsMatch(m, year, week));
+        }
+
+        public IEnumerable<LunchMenu> GetMenusForTheNext5Weeks(DateTime date)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
