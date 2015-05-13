@@ -1,6 +1,10 @@
 ﻿@model Logikfabrik.Felice.ViewModels.EatWithUsPageViewModel
 
 <section class="menu-of-the-week">
+    @{
+        Html.RenderAction("WeekMenu", "WeekMenu");
+    }
+
     <h4>Lunchmeny v. @Model.Week</h4>
     <p>@Model.Preamble1</p>
     <p>@Model.Preamble2</p>

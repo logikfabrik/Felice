@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using Logikfabrik.Felice.Helpers;
@@ -37,16 +36,6 @@ namespace Logikfabrik.Felice.Controllers
                 Mapper.Map(menu, jm);
 
             return View(jm);
-        }
-
-        [ChildActionOnly]
-        public PartialViewResult WeekMenu()
-        {
-            var menus = this.lunchMenuHelper.GetMenusForTheNext5Weeks(DateTime.Now);
-
-            // TODO: This.
-
-            return PartialView(Mapper.Map<IEnumerable<MenuItemViewModel>>(menus));
         }
     }
 }

@@ -7,12 +7,12 @@ namespace Logikfabrik.Felice.Helpers
     public class DateHelper
     {
         /// <summary>
-        /// Gets the week of year.
+        /// Gets the week of year for the given date.
         /// </summary>
-        /// <param name="date">The current date.</param>
+        /// <param name="date">A date.</param>
         /// <returns>The week of year.</returns>
-        /// <remarks>Respects ISO 8601.</remarks>
-        public int GetWeekOfYearIso8601(DateTime date)
+        // ReSharper disable once InconsistentNaming
+        public int GetWeekOfYearISO8601(DateTime date)
         {
             while (true)
             {
@@ -36,9 +36,9 @@ namespace Logikfabrik.Felice.Helpers
         }
         
         /// <summary>
-        /// Gets the day of week.
+        /// Gets the day of week for the given date.
         /// </summary>
-        /// <param name="date">The current date.</param>
+        /// <param name="date">A date.</param>
         /// <returns>The day of week.</returns>
         public DayOfWeek GetDayOfWeek(DateTime date)
         {
@@ -48,6 +48,12 @@ namespace Logikfabrik.Felice.Helpers
             return format.Calendar.GetDayOfWeek(date);
         }
 
+        /// <summary>
+        /// Gets the days in week for the given year and week.
+        /// </summary>
+        /// <param name="year">A year.</param>
+        /// <param name="week">A week.</param>
+        /// <returns>The days in week.</returns>
         public IEnumerable<DateTime> GetDaysInWeek(int year, int week)
         {
             var days = new List<DateTime>();
@@ -58,8 +64,22 @@ namespace Logikfabrik.Felice.Helpers
 
             return days;
         }
+        
+        /// <summary>
+        /// Gets the weeks of year for the given year.
+        /// </summary>
+        /// <param name="year">A year.</param>
+        /// <returns>The weeks of year.</returns>
+        // ReSharper disable once InconsistentNaming
+        public int GetWeeksOfYearISO8601(int year)
+        {
+            // The 28th of December will always fall within the last week, according to ISO 8601.
+            var date = new DateTime(year, 12, 28);
 
-        private DateTime FirstDateOfWeek(int year, int week)
+            return GetWeekOfYearISO8601(date);
+        }
+
+        private static DateTime FirstDateOfWeek(int year, int week)
         {
             var date = new DateTime(year, 1, 1);
             var format = DateTimeFormatInfo.CurrentInfo;
@@ -72,7 +92,7 @@ namespace Logikfabrik.Felice.Helpers
             return date.AddDays(offset).AddDays(week * 7);
         }
 
-        public int GetDaysBetweenDaysOfWeek(DayOfWeek from, DayOfWeek to)
+        private static int GetDaysBetweenDaysOfWeek(DayOfWeek from, DayOfWeek to)
         {
             if (from == to)
                 return 0;

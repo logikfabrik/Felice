@@ -23,6 +23,8 @@ namespace Logikfabrik.Felice
             Mapper.CreateMap<LunchMenu, EatWithUsPageViewModel>();
 
             Mapper.CreateMap<INode, MenuItemViewModel>();
+
+            Mapper.CreateMap<LunchMenu, MenuItemViewModel>();
         }
 
         public static IMappingExpression<TSource, TDestination> MapBasePageViewModel<TSource, TDestination>(this IMappingExpression<TSource, TDestination> map, SettingsHelper settingsHelper)

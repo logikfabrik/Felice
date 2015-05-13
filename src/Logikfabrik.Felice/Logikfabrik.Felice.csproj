@@ -276,6 +276,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OpeningHoursController.cs" />
+    <Compile Include="Controllers\WeekMenuController.cs" />
     <Compile Include="DataTypes\OpeningHour.cs" />
     <Compile Include="DataTypes\OpeningHours.cs" />
     <Compile Include="DataTypes\OpeningHoursConverter.cs" />
@@ -380,7 +381,7 @@
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\EatWithUsPage\WeekMenu.cshtml" />
+    <Content Include="Views\Shared\WeekMenu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

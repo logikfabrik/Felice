@@ -52,7 +52,7 @@ namespace Logikfabrik.Felice.Helpers
 
         public IEnumerable<Hours> GetOpeningHoursOfTheWeek(DateTime date)
         {
-            var daysInWeek = dateHelper.GetDaysInWeek(date.Year, dateHelper.GetWeekOfYearIso8601(date));
+            var daysInWeek = dateHelper.GetDaysInWeek(date.Year, dateHelper.GetWeekOfYearISO8601(date));
 
             return daysInWeek.Select(GetOpeningHoursOfTheDay).Where(h => h != null);
         }
