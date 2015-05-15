@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.91.4875.26882\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
@@ -59,6 +62,9 @@
     <Reference Include="BundleTransformer.Less, Version=1.6.25.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
       <HintPath>..\packages\BundleTransformer.Less.1.6.25\lib\net40\BundleTransformer.Less.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="BundleTransformer.MicrosoftAjax">
+      <HintPath>..\packages\BundleTransformer.MicrosoftAjax.1.6.25\lib\net40\BundleTransformer.MicrosoftAjax.dll</HintPath>
     </Reference>
     <Reference Include="businesslogic, Version=1.0.5161.21056, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.0.4\lib\businesslogic.dll</HintPath>
@@ -382,6 +388,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Shared\WeekMenu.cshtml" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -414,6 +421,7 @@ Robocopy "$(ProjectDir)App_Plugins" "$(SolutionDir)Logikfabrik.Felice.Web\App_Pl
 Robocopy "$(ProjectDir)Assets" "$(SolutionDir)Logikfabrik.Felice.Web\Assets" /e /is
 Robocopy "$(ProjectDir)Views" "$(SolutionDir)Logikfabrik.Felice.Web\Views" /s /is
 Copy "$(ProjectDir)\Global.asax" "$(SolutionDir)Logikfabrik.Felice.Web\Global.asax"
+Copy "$(ProjectDir)\Web.config" "$(SolutionDir)Logikfabrik.Felice.Web\Web.config"
 IF %25errorlevel%25 LEQ 1 EXIT 0 ELSE EXIT %25errorlevel%25
 </PostBuildEvent>
   </PropertyGroup>
