@@ -1,4 +1,5 @@
 ﻿@using System.Text.RegularExpressions
+
 @model Logikfabrik.Felice.ViewModels.BasePageViewModel
 
 <!DOCTYPE html>
@@ -7,6 +8,8 @@
 <head>
     @Html.HeadFor(Model)
     <title>@Model.Name - Restaurang Felicé</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic">
+    @Styles.Render("~/Assets/CommonCss")
 </head>
 <body data-ng-app="Felice">
     <header>
@@ -37,10 +40,7 @@
             <li>tfn. <a href="tel:@Regex.Replace(Model.PhoneNumber, @"[^\d]", string.Empty)">@Model.PhoneNumber</a></li>
         </ul>
     </footer>
-
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic">
-    @Styles.Render("~/Assets/CommonCss")
-
+    
     @Scripts.Render("~/Assets/CommonJs")
     <script src="//maps.google.com/maps/api/js?v=3"></script>
 </body>

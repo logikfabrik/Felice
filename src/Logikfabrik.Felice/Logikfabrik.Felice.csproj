@@ -355,7 +355,6 @@
     <Content Include="Assets\js\vendor\angularjs-1.2.22\angular.min.js" />
     <Content Include="Assets\js\vendor\lodash-2.4.1\lodash.js" />
     <Content Include="Assets\js\vendor\lodash-2.4.1\lodash.min.js" />
-    <Content Include="Assets\js\vendor\sprintf\sprintf.min.js" />
     <Content Include="Global.asax" />
   </ItemGroup>
   <ItemGroup>
@@ -370,7 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\app\felice.less" />
-    <Content Include="Assets\js\vendor\sprintf\sprintf.min.map" />
     <Content Include="Views\EatWithUsPage\Index.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\Shared\DishOfTheDay.cshtml" />
@@ -388,7 +386,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Shared\WeekMenu.cshtml" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

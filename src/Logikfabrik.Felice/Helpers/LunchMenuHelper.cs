@@ -78,25 +78,40 @@ namespace Logikfabrik.Felice.Helpers
             if (menu == null)
                 return null;
 
+            string dish = null;
+            
             switch (day)
             {
                 case DayOfWeek.Monday:
-                    return menu.Monday;
+                    dish = menu.Monday;
+                    break;
+
                 case DayOfWeek.Tuesday:
-                    return menu.Tuesday;
+                    dish =  menu.Tuesday;
+                    break;
+
                 case DayOfWeek.Wednesday:
-                    return menu.Wednesday;
+                    dish = menu.Wednesday;
+                    break;
+
                 case DayOfWeek.Thursday:
-                    return menu.Thursday;
+                    dish = menu.Thursday;
+                    break;
+
                 case DayOfWeek.Friday:
-                    return menu.Friday;
+                    dish = menu.Friday;
+                    break;
+
                 case DayOfWeek.Saturday:
-                    return menu.Saturday;
+                    dish =  menu.Saturday;
+                    break;
+
                 case DayOfWeek.Sunday:
-                    return menu.Sunday;
-                default:
-                    return null;
+                    dish = menu.Sunday;
+                    break;
             }
+
+            return string.IsNullOrWhiteSpace(dish) ? null : dish;
         }
 
         private static bool IsMatch(LunchMenu menu, int year, int week)
