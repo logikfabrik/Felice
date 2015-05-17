@@ -27,15 +27,32 @@ namespace Logikfabrik.Felice.Controllers
 
         public ActionResult Index(EatWithUsPage model)
         {
-            var jm = Mapper.Map<EatWithUsPageViewModel>(model);
             var menu = this.lunchMenuHelper.GetMenuOfTheWeek(DateTime.Now);
 
+            return Index(model, menu);
+        }
+
+        [ActionName("ViewLunchMenu")]
+        public ActionResult Index(EatWithUsPage model, int year, int week)
+        {
+            var menu = this.lunchMenuHelper.GetMenuOfTheWeek(year, week);
+
+            return Index(model, menu);
+        }
+
+        private ActionResult Index(EatWithUsPage model, LunchMenu menu)
+        {
+            if (model == null)
+                throw new ArgumentNullException("menu");
+            
+            var jm = Mapper.Map<EatWithUsPageViewModel>(model);
+            
             jm.HasMenu = menu != null;
 
             if (menu != null)
                 Mapper.Map(menu, jm);
 
-            return View(jm);
+            return View("Index", jm);
         }
     }
 }

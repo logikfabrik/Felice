@@ -386,6 +386,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Shared\WeekMenu.cshtml" />
+    <Content Include="Config\umbracoSettings.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -416,11 +417,10 @@
     <PostBuildEvent>Robocopy "$(ProjectDir)bin" "$(SolutionDir)Logikfabrik.Felice.Web\bin"
 Robocopy "$(ProjectDir)App_Plugins" "$(SolutionDir)Logikfabrik.Felice.Web\App_Plugins" /e /is
 Robocopy "$(ProjectDir)Assets" "$(SolutionDir)Logikfabrik.Felice.Web\Assets" /e /is
+Robocopy "$(ProjectDir)Config" "$(SolutionDir)Logikfabrik.Felice.Web\Config" /s /is
 Robocopy "$(ProjectDir)Views" "$(SolutionDir)Logikfabrik.Felice.Web\Views" /s /is
 Copy "$(ProjectDir)\Global.asax" "$(SolutionDir)Logikfabrik.Felice.Web\Global.asax"
-Copy "$(ProjectDir)\Web.config" "$(SolutionDir)Logikfabrik.Felice.Web\Web.config"
-IF %25errorlevel%25 LEQ 1 EXIT 0 ELSE EXIT %25errorlevel%25
-</PostBuildEvent>
+IF %25errorlevel%25 LEQ 1 EXIT 0 ELSE EXIT %25errorlevel%25</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

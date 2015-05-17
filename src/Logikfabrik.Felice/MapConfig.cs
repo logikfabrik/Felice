@@ -24,7 +24,8 @@ namespace Logikfabrik.Felice
 
             Mapper.CreateMap<INode, MenuItemViewModel>();
 
-            Mapper.CreateMap<LunchMenu, MenuItemViewModel>();
+            Mapper.CreateMap<LunchMenu, MenuItemViewModel>()
+                .ForMember(to => to.Name, options => options.MapFrom(from => string.Format("v. {0}", from.Week)));
         }
 
         public static IMappingExpression<TSource, TDestination> MapBasePageViewModel<TSource, TDestination>(this IMappingExpression<TSource, TDestination> map, SettingsHelper settingsHelper)
