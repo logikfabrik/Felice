@@ -77,5 +77,9 @@ namespace Logikfabrik.Felice.ViewModels
         /// Gets or sets the phone number.
         /// </summary>
         public string PhoneNumber { get; set; }
+
+        public double? Lat { get; set; }
+
+        public double? Lng { get; set; }
     }
 }

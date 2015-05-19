@@ -348,11 +348,12 @@
     <Content Include="Assets\js\app\components\findUsOnTheMap\findUsOnTheMapController.js" />
     <Content Include="Assets\js\app\components\openingHoursOfTheDay\openingHoursOfTheDayController.js" />
     <Content Include="Assets\js\app\components\openingHoursOfTheDay\openingHoursOfTheDayFactory.js" />
-    <Content Include="Assets\js\app\factories\googleMapsFactory.js" />
-    <Content Include="Assets\js\app\factories\lodashFactory.js" />
+    <Content Include="Assets\js\app\factories\leaflet.js" />
+    <Content Include="Assets\js\app\factories\lodash.js" />
     <Content Include="Assets\js\app\ga.js" />
     <Content Include="Assets\js\vendor\angularjs-1.2.22\angular.js" />
     <Content Include="Assets\js\vendor\angularjs-1.2.22\angular.min.js" />
+    <Content Include="Assets\js\vendor\leaflet-0.7.3\leaflet.min.js" />
     <Content Include="Assets\js\vendor\lodash-2.4.1\lodash.js" />
     <Content Include="Assets\js\vendor\lodash-2.4.1\lodash.min.js" />
     <Content Include="Global.asax" />
@@ -382,9 +383,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="App_Plugins\Logikfabrik.Umbraco.Jet.Maps\package.manifest" />
-    <None Include="BundleTransformer.Configuration.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\Shared\WeekMenu.cshtml" />
     <Content Include="Config\umbracoSettings.config" />
   </ItemGroup>

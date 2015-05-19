@@ -1,6 +1,11 @@
-﻿@{
+﻿@model Logikfabrik.Felice.ViewModels.HomePageViewModel
+
+@{
+    Html.RenderPartial("DishOfTheDay");
+}
+@{
     Html.RenderPartial("OpeningHoursOfTheDay");
 }
 @{
-    Html.RenderPartial("DishOfTheDay");
+    Html.RenderPartial("FindUsOnTheMap", Model);
 }

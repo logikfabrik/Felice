@@ -1,6 +1,7 @@
 ﻿using System;
 using Logikfabrik.Felice.DataTypes;
 using Logikfabrik.Felice.Models;
+using Logikfabrik.Umbraco.Jet.Maps;
 
 namespace Logikfabrik.Felice.Helpers
 {
@@ -64,6 +65,19 @@ namespace Logikfabrik.Felice.Helpers
             var openingHours = settings.Value.OpeningHours;
 
             return openingHours ?? new OpeningHours();
+        }
+
+        /// <summary>
+        /// Gets the map coordinates.
+        /// </summary>
+        public GeoCoordinates GetMapCoordinates()
+        {
+            if (settings.Value == null)
+                return null;
+
+            var mapCoordinates = settings.Value.MapCoordinates;
+
+            return mapCoordinates;
         }
     }
 }
