@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Logikfabrik.Felice.DataTypes
 {
-    public class OpeningHoursConverter : IPropertyValueConverter
+    public class OpeningHoursPropertyValueConverter : IPropertyValueConverter
     {
         public bool CanConvertValue(string uiHint, Type from, Type to)
         {

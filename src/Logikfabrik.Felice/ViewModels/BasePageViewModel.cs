@@ -1,4 +1,5 @@
 ﻿using System;
+using Logikfabrik.Umbraco.Jet.Maps;
 
 namespace Logikfabrik.Felice.ViewModels
 {
@@ -78,8 +79,9 @@ namespace Logikfabrik.Felice.ViewModels
         /// </summary>
         public string PhoneNumber { get; set; }
 
-        public double? Lat { get; set; }
-
-        public double? Lng { get; set; }
+        /// <summary>
+        /// Gets or sets the map coordinates.
+        /// </summary>
+        public GeoCoordinates MapCoordinates { get; set; }
     }
 }

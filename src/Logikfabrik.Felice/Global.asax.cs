@@ -15,7 +15,7 @@ namespace Logikfabrik.Felice
         protected override void OnApplicationStarting(object sender, EventArgs e)
         {
             DataTypeDefinitionMappings.Mappings.Add(typeof(OpeningHours), new OpeningHoursDataTypeDefinitionMapping());
-            PropertyValueConverters.Converters.Add(typeof(OpeningHours), new[] { new OpeningHoursConverter() });
+            PropertyValueConverters.Converters.Add(typeof(OpeningHours), new[] { new OpeningHoursPropertyValueConverter() });
         }
 
         protected override void OnApplicationStarted(object sender, EventArgs e)

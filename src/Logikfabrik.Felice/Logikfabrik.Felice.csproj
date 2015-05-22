@@ -285,7 +285,7 @@
     <Compile Include="Controllers\WeekMenuController.cs" />
     <Compile Include="DataTypes\OpeningHour.cs" />
     <Compile Include="DataTypes\OpeningHours.cs" />
-    <Compile Include="DataTypes\OpeningHoursConverter.cs" />
+    <Compile Include="DataTypes\OpeningHoursPropertyValueConverter.cs" />
     <Compile Include="DataTypes\OpeningHoursDataTypeDefinitionMapping.cs" />
     <Compile Include="Extensions\NodeExtensions.cs" />
     <Compile Include="Global.asax.cs">

@@ -34,18 +34,12 @@ namespace Logikfabrik.Felice
         {
             if (settingsHelper == null)
                 throw new ArgumentNullException("settingsHelper");
-
-            var mapCoordinates = settingsHelper.GetMapCoordinates();
-
-            if (mapCoordinates != null)
-                map =
-                    map.ForMember(to => to.Lat, options => options.UseValue(mapCoordinates.Lat))
-                        .ForMember(to => to.Lng, options => options.UseValue(mapCoordinates.Lng));
-
+            
             return map.ForMember(to => to.StreetAddress, options => options.UseValue(settingsHelper.GetStreetAddress()))
                 .ForMember(to => to.ZipCode, options => options.UseValue(settingsHelper.GetZipCode()))
                 .ForMember(to => to.City, options => options.UseValue(settingsHelper.GetCity()))
-                .ForMember(to => to.PhoneNumber, options => options.UseValue(settingsHelper.GetPhoneNumber()));
+                .ForMember(to => to.PhoneNumber, options => options.UseValue(settingsHelper.GetPhoneNumber()))
+                .ForMember(to => to.MapCoordinates, options => options.UseValue(settingsHelper.GetMapCoordinates()));
         }
     }
 }
