@@ -9,8 +9,6 @@ namespace Logikfabrik.Felice
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            BundleTable.EnableOptimizations = true;
-
             bundles.Add(GetCssBundle());
             bundles.Add(GetJsBundle());
         }

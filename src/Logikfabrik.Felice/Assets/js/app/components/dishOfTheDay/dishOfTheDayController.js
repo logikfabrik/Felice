@@ -1,4 +1,4 @@
-﻿app.controller('dishOfTheDayController', ['$scope', '_', 'dishOfTheDayFactory',
+﻿app.controller('dishOfTheDayController', ['$scope', 'lodash', 'dishOfTheDayFactory',
     function ($scope, _, dishOfTheDayFactory) {
         $scope.dish = null;
         $scope.date = new Date();

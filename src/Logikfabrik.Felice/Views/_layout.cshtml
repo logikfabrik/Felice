@@ -9,6 +9,7 @@
     @Html.HeadFor(Model)
     <title>@Model.Name - Restaurang Felicé</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css">
     @Styles.Render("~/Assets/CommonCss")
 </head>
 <body data-ng-app="Felice">
@@ -41,7 +42,9 @@
             <li>tfn. <a href="tel:@Regex.Replace(Model.PhoneNumber, @"[^\d]", string.Empty)">@Model.PhoneNumber</a></li>
         </ul>
     </footer>
-    
+
+    <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+    <script src="//cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.6/esri-leaflet.js"></script>
     @Scripts.Render("~/Assets/CommonJs")
 </body>
 </html>

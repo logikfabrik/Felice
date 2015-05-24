@@ -1,4 +1,4 @@
-﻿app.controller('openingHoursOfTheDayController', ['$scope', '_', 'openingHoursOfTheDayFactory',
+﻿app.controller('openingHoursOfTheDayController', ['$scope', 'lodash', 'openingHoursOfTheDayFactory',
     function ($scope, _, openingHoursOfTheDayFactory) {
         $scope.openingHours = null;
         $scope.date = new Date();

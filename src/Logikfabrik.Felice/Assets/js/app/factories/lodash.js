@@ -1,3 +1,3 @@
-﻿app.factory('_', function () {
+﻿app.factory('lodash', function () {
     return window._;
 });

@@ -353,7 +353,6 @@
     <Content Include="Assets\js\app\ga.js" />
     <Content Include="Assets\js\vendor\angularjs-1.2.22\angular.js" />
     <Content Include="Assets\js\vendor\angularjs-1.2.22\angular.min.js" />
-    <Content Include="Assets\js\vendor\leaflet-0.7.3\leaflet.min.js" />
     <Content Include="Assets\js\vendor\lodash-2.4.1\lodash.js" />
     <Content Include="Assets\js\vendor\lodash-2.4.1\lodash.min.js" />
     <Content Include="Global.asax" />
