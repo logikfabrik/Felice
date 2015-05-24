@@ -118,8 +118,8 @@
       <HintPath>..\packages\uJet.3.1.0.0\lib\net45\Logikfabrik.Umbraco.Jet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Logikfabrik.Umbraco.Jet.Maps, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uJetMaps.0.0.1.0\lib\net45\Logikfabrik.Umbraco.Jet.Maps.dll</HintPath>
+    <Reference Include="Logikfabrik.Umbraco.Jet.Maps, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uJetMaps.0.0.2.0\lib\net45\Logikfabrik.Umbraco.Jet.Maps.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
@@ -370,6 +370,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\app\felice.less" />
+    <Content Include="Umbraco\Config\Lang\en.xml" />
+    <Content Include="Umbraco\Config\Lang\en_us.xml" />
+    <Content Include="Umbraco\Config\Lang\sv.xml" />
     <Content Include="Views\EatWithUsPage\Index.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\Shared\DishOfTheDay.cshtml" />
@@ -381,10 +384,17 @@
     <Content Include="Views\_viewstart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="App_Plugins\Logikfabrik.Umbraco.Jet.Maps\package.manifest" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\WeekMenu.cshtml" />
     <Content Include="Config\umbracoSettings.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\Logikfabrik.Umbraco.Jet.Maps\package.manifest" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -416,6 +426,7 @@
 Robocopy "$(ProjectDir)App_Plugins" "$(SolutionDir)Logikfabrik.Felice.Web\App_Plugins" /e /is
 Robocopy "$(ProjectDir)Assets" "$(SolutionDir)Logikfabrik.Felice.Web\Assets" /e /is
 Robocopy "$(ProjectDir)Config" "$(SolutionDir)Logikfabrik.Felice.Web\Config" /s /is
+Robocopy "$(ProjectDir)Umbraco" "$(SolutionDir)Logikfabrik.Felice.Web\Umbraco" /s /is
 Robocopy "$(ProjectDir)Views" "$(SolutionDir)Logikfabrik.Felice.Web\Views" /s /is
 Copy "$(ProjectDir)\Global.asax" "$(SolutionDir)Logikfabrik.Felice.Web\Global.asax"
 IF %25errorlevel%25 LEQ 1 EXIT 0 ELSE EXIT %25errorlevel%25</PostBuildEvent>

@@ -9,16 +9,13 @@ namespace Logikfabrik.Felice
 {
     public static class MapConfig
     {
-        public static void RegisterMaps(SettingsHelper settingsHelper)
+        public static void RegisterMaps()
         {
-            if (settingsHelper == null)
-                throw new ArgumentNullException("settingsHelper");
-
             Mapper.CreateMap<HomePage, HomePageViewModel>()
-                .MapBasePageViewModel<HomePage, HomePageViewModel>(settingsHelper);
+                .MapBasePageViewModel<HomePage, HomePageViewModel>();
 
             Mapper.CreateMap<EatWithUsPage, EatWithUsPageViewModel>()
-                .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>(settingsHelper);
+                .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>();
 
             Mapper.CreateMap<LunchMenu, EatWithUsPageViewModel>();
 
@@ -28,18 +25,45 @@ namespace Logikfabrik.Felice
                 .ForMember(to => to.Name, options => options.MapFrom(from => string.Format("v. {0}", from.Week)));
         }
 
-        public static IMappingExpression<TSource, TDestination> MapBasePageViewModel<TSource, TDestination>(this IMappingExpression<TSource, TDestination> map, SettingsHelper settingsHelper)
+        public static IMappingExpression<TSource, TDestination> MapBasePageViewModel<TSource, TDestination>(this IMappingExpression<TSource, TDestination> map)
             where TSource : BasePage
             where TDestination : BasePageViewModel
         {
-            if (settingsHelper == null)
-                throw new ArgumentNullException("settingsHelper");
-            
-            return map.ForMember(to => to.StreetAddress, options => options.UseValue(settingsHelper.GetStreetAddress()))
-                .ForMember(to => to.ZipCode, options => options.UseValue(settingsHelper.GetZipCode()))
-                .ForMember(to => to.City, options => options.UseValue(settingsHelper.GetCity()))
-                .ForMember(to => to.PhoneNumber, options => options.UseValue(settingsHelper.GetPhoneNumber()))
-                .ForMember(to => to.MapCoordinates, options => options.UseValue(settingsHelper.GetMapCoordinates()));
+            return map.ForMember(to => to.StreetAddress, options => options.ResolveUsing(ResolveStreetAddress))
+                .ForMember(to => to.ZipCode, options => options.ResolveUsing(ResolveZipCode))
+                .ForMember(to => to.City, options => options.ResolveUsing(ResolveCity))
+                .ForMember(to => to.PhoneNumber, options => options.ResolveUsing(ResolvePhoneNumber))
+                .ForMember(to => to.MapCoordinates, options => options.ResolveUsing(ResolveMapCoordinates));
+        }
+
+        private static object ResolveStreetAddress<TSource>(TSource source)
+            where TSource : BasePage
+        {
+            return new SettingsHelper(new PageHelper()).GetStreetAddress();
+        }
+
+        private static object ResolveZipCode<TSource>(TSource source)
+            where TSource : BasePage
+        {
+            return new SettingsHelper(new PageHelper()).GetZipCode();
+        }
+
+        private static object ResolveCity<TSource>(TSource source)
+            where TSource : BasePage
+        {
+            return new SettingsHelper(new PageHelper()).GetCity();
+        }
+
+        private static object ResolvePhoneNumber<TSource>(TSource source)
+            where TSource : BasePage
+        {
+            return new SettingsHelper(new PageHelper()).GetPhoneNumber();
+        }
+
+        private static object ResolveMapCoordinates<TSource>(TSource source)
+            where TSource : BasePage
+        {
+            return new SettingsHelper(new PageHelper()).GetMapCoordinates();
         }
     }
 }

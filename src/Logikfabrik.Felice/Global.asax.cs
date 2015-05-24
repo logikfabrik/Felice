@@ -22,7 +22,7 @@ namespace Logikfabrik.Felice
         {
             base.OnApplicationStarted(sender, e);
 
-            MapConfig.RegisterMaps(new SettingsHelper(new PageHelper()));
+            MapConfig.RegisterMaps();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
