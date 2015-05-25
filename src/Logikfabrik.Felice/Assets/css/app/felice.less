@@ -120,6 +120,16 @@ article {
     }
 
     .find-us-on-the-map {
+        address {
+            display: inline;
+        }
+
+        > div {
+            margin: 0 auto 0;
+            max-width: 500px;
+            height: 200px;
+            border: 1px solid @black;
+        }
     }
 
     .menu-of-the-week {
@@ -143,11 +153,6 @@ footer {
     padding: 0 18px;
     font-size: .8em;
     font-style: italic;
-}
-
-#map {
-    width: 200px;
-    height: 200px;
 }
 
 /* Tablets (portrait and landscape) */
