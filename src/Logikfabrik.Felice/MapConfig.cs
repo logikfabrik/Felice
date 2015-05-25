@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Web.Mvc;
+using System.Web.Routing;
 using AutoMapper;
 using Logikfabrik.Felice.Helpers;
 using Logikfabrik.Felice.Models;
@@ -14,15 +16,22 @@ namespace Logikfabrik.Felice
             Mapper.CreateMap<HomePage, HomePageViewModel>()
                 .MapBasePageViewModel<HomePage, HomePageViewModel>();
 
+            Mapper.CreateMap<FindUsPage, FindUsPageViewModel>()
+                .MapBasePageViewModel<FindUsPage, FindUsPageViewModel>();
+
             Mapper.CreateMap<EatWithUsPage, EatWithUsPageViewModel>()
                 .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>();
 
-            Mapper.CreateMap<LunchMenu, EatWithUsPageViewModel>();
+            Mapper.CreateMap<LunchMenu, EatWithUsPageViewModel>()
+                .ForMember(to => to.Name, options => options.Ignore())
+                .ForMember(to => to.MetaDescription, options => options.Ignore())
+                .ForMember(to => to.MetaKeywords, options => options.Ignore());
 
             Mapper.CreateMap<INode, MenuItemViewModel>();
 
             Mapper.CreateMap<LunchMenu, MenuItemViewModel>()
-                .ForMember(to => to.Name, options => options.MapFrom(from => string.Format("v. {0}", from.Week)));
+                .ForMember(to => to.Name, options => options.MapFrom(from => string.Format("v. {0}", from.Week)))
+                .ForMember(to => to.Url, options => options.ResolveUsing(ResolveLunchMenuUrl));
         }
 
         public static IMappingExpression<TSource, TDestination> MapBasePageViewModel<TSource, TDestination>(this IMappingExpression<TSource, TDestination> map)
@@ -34,6 +43,19 @@ namespace Logikfabrik.Felice
                 .ForMember(to => to.City, options => options.ResolveUsing(ResolveCity))
                 .ForMember(to => to.PhoneNumber, options => options.ResolveUsing(ResolvePhoneNumber))
                 .ForMember(to => to.MapCoordinates, options => options.ResolveUsing(ResolveMapCoordinates));
+        }
+
+        private static object ResolveLunchMenuUrl<TSource>(TSource source)
+            where TSource : LunchMenu
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException("source");
+            }
+
+            var helper = new UrlHelper(System.Web.HttpContext.Current.Request.RequestContext);
+
+            return helper.RouteUrl("ViewLunchMenu", new RouteValueDictionary(new { @year = source.Year, @week = source.Week }));
         }
 
         private static object ResolveStreetAddress<TSource>(TSource source)
