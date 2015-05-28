@@ -14,7 +14,7 @@ namespace Logikfabrik.Felice.Helpers
             if (pageHelper == null)
                 throw new ArgumentNullException("pageHelper");
 
-            settings = new Lazy<Settings>(pageHelper.GetSettings);
+            settings = new Lazy<Settings>(pageHelper.GetPageOfType<Settings>);
         }
 
         /// <summary>

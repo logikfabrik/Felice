@@ -24,7 +24,7 @@ namespace Logikfabrik.Felice.Controllers
 
         public object GetDishOfTheDay(DateTime date)
         {
-            var menu = lunchMenuHelper.GetMenuOfTheWeek(date);
+            var menu = lunchMenuHelper.GetLunchMenuOfTheWeek(date);
 
             if (menu == null)
                 return new JsonResult { Data = new { } };

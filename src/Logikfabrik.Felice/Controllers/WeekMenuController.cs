@@ -28,7 +28,7 @@ namespace Logikfabrik.Felice.Controllers
         [ChildActionOnly]
         public PartialViewResult WeekMenu()
         {
-            var menus = this.lunchMenuHelper.GetTheNext5Menus(DateTime.Now);
+            var menus = this.lunchMenuHelper.GetTheNext5LunchMenus(DateTime.Now);
 
             return PartialView(Mapper.Map<IEnumerable<MenuItemViewModel>>(menus));
         }

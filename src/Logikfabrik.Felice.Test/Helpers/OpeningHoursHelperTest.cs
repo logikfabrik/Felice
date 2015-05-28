@@ -24,7 +24,7 @@ namespace Logikfabrik.Felice.Test.Helpers
             };
             var mock = new Moq.Mock<IPageHelper>();
 
-            mock.Setup(m => m.GetSettings()).Returns(settings);
+            mock.Setup(m => m.GetPageOfType<Settings>()).Returns(settings);
 
             return mock.Object;
         }

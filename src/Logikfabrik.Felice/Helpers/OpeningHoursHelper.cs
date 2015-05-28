@@ -22,7 +22,7 @@ namespace Logikfabrik.Felice.Helpers
             this.settingsHelper = new SettingsHelper(pageHelper);
             this.dateHelper = dateHelper;
         }
-        
+
         /// <summary>
         /// Gets the opening hours of the day.
         /// </summary>

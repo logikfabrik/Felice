@@ -2,7 +2,6 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using Logikfabrik.Felice.DataTypes;
-using Logikfabrik.Felice.Helpers;
 using Logikfabrik.Felice.Utilities;
 using Logikfabrik.Umbraco.Jet.Mappings;
 using Logikfabrik.Umbraco.Jet.Web.Data.Converters;

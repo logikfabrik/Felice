@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMapper;
@@ -53,7 +54,7 @@ namespace Logikfabrik.Felice
                 throw new ArgumentNullException("source");
             }
 
-            var helper = new UrlHelper(System.Web.HttpContext.Current.Request.RequestContext);
+            var helper = new UrlHelper(HttpContext.Current.Request.RequestContext);
 
             return helper.RouteUrl("ViewLunchMenu", new RouteValueDictionary(new { @year = source.Year, @week = source.Week }));
         }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Logikfabrik.Felice.Extensions;
-using Logikfabrik.Felice.Models;
 using Logikfabrik.Umbraco.Jet.Web.Data;
 using umbraco;
 using umbraco.NodeFactory;
@@ -26,57 +25,43 @@ namespace Logikfabrik.Felice.Helpers
             this.documentService = documentService;
         }
 
-        private static Node GetHomePage()
+        private static Node GetRootNode()
         {
             var root = new Node(-1);
 
             return root.GetChildNodes().FirstOrDefault();
         }
-
-        /// <summary>
-        /// Gets the settings.
-        /// </summary>
-        /// <returns>The settings.</returns>
-        public Settings GetSettings()
+        
+        public T GetPageOfType<T>() where T : class, new()
         {
-            var homePage = GetHomePage();
+            var rootNode = GetRootNode();
 
-            var settings = homePage == null
+            var pageNode = rootNode == null
                 ? null
-                : homePage.GetDescendants<Settings>().SingleOrDefault();
+                : rootNode.GetDescendants<T>().SingleOrDefault();
 
-            return settings == null ? null : documentService.GetDocument<Settings>(settings.GetContent());
+            return pageNode == null ? null : documentService.GetDocument<T>(pageNode.GetContent());
         }
 
-        /// <summary>
-        /// Gets the lunch menus.
-        /// </summary>
-        /// <returns>The lunch menus.</returns>
-        public IEnumerable<LunchMenu> GetLunchMenus()
+        public IEnumerable<T2> GetChildPagesOfType<T1, T2>()
+            where T1 : class, new()
+            where T2 : class, new()
         {
-            var homePage = GetHomePage();
+            var rootNode = GetRootNode();
 
-            var lunchMenus = homePage == null
+            var parentPageNodes = rootNode == null
                 ? null
-                : homePage.GetDescendants<LunchMenus>().SingleOrDefault();
+                : rootNode.GetDescendants<T1>().SingleOrDefault();
 
-            if (lunchMenus == null)
-                return new LunchMenu[] { };
+            if (parentPageNodes == null)
+                return new T2[] { };
 
-            var menus =
-                lunchMenus.GetChildren<LunchMenu>()
-                    .Select(menu => documentService.GetDocument<LunchMenu>(menu.GetContent()))
+            var pageNodes =
+                parentPageNodes.GetChildren<T2>()
+                    .Select(menu => documentService.GetDocument<T2>(menu.GetContent()))
                     .ToArray();
 
-            var lunchMenusPage = documentService.GetDocument<LunchMenus>(lunchMenus.GetContent());
-
-            foreach (var menu in menus)
-            {
-                menu.Preamble1 = lunchMenusPage.Preamble1;
-                menu.Preamble2 = lunchMenusPage.Preamble2;
-            }
-
-            return menus;
+            return pageNodes;
         }
     }
 }

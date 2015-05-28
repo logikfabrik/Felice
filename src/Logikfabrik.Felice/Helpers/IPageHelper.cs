@@ -1,20 +1,14 @@
 ﻿using System.Collections.Generic;
-using Logikfabrik.Felice.Models;
 
 namespace Logikfabrik.Felice.Helpers
 {
     public interface IPageHelper
     {
-        /// <summary>
-        /// Gets the lunch menus.
-        /// </summary>
-        /// <returns>The lunch menus.</returns>
-        IEnumerable<LunchMenu> GetLunchMenus();
+        T GetPageOfType<T>() 
+            where T : class, new();
 
-        /// <summary>
-        /// Gets the settings.
-        /// </summary>
-        /// <returns>The settings.</returns>
-        Settings GetSettings();
+        IEnumerable<T2> GetChildPagesOfType<T1, T2>() 
+            where T1 : class, new() 
+            where T2 : class, new();
     }
 }

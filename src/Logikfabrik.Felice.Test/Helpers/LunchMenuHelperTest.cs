@@ -10,6 +10,7 @@ namespace Logikfabrik.Felice.Test.Helpers
     {
         private static IPageHelper GetPageHelper()
         {
+            var menu = new LunchMenus();
             var menus = new[]
             {
                 new LunchMenu
@@ -25,9 +26,11 @@ namespace Logikfabrik.Felice.Test.Helpers
                     Sunday = "Dish 2"
                 }
             };
+
             var mock = new Moq.Mock<IPageHelper>();
 
-            mock.Setup(m => m.GetLunchMenus()).Returns(menus);
+            mock.Setup(m => m.GetPageOfType<LunchMenus>()).Returns(menu);
+            mock.Setup(m => m.GetChildPagesOfType<LunchMenus, LunchMenu>()).Returns(menus);
 
             return mock.Object;
         }
@@ -38,7 +41,7 @@ namespace Logikfabrik.Felice.Test.Helpers
             var helper = new LunchMenuHelper(GetPageHelper(), new DateHelper());
 
             var date1 = new DateTime(2013, 3, 4);
-            var menu1 = helper.GetMenuOfTheWeek(date1);
+            var menu1 = helper.GetLunchMenuOfTheWeek(date1);
 
             Assert.IsNotNull(menu1);
             Assert.AreEqual(10, menu1.Week);
@@ -46,7 +49,7 @@ namespace Logikfabrik.Felice.Test.Helpers
             Assert.AreEqual("Dish 1", menu1.Monday);
 
             var date2 = new DateTime(2014, 10, 26);
-            var menu2 = helper.GetMenuOfTheWeek(date2);
+            var menu2 = helper.GetLunchMenuOfTheWeek(date2);
 
             Assert.IsNotNull(menu2);
             Assert.AreEqual(43, menu2.Week);
