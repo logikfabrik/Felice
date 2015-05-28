@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -80,7 +81,7 @@ namespace Logikfabrik.Felice
         private static object ResolvePhoneNumber<TSource>(TSource source)
             where TSource : BasePage
         {
-            return new SettingsHelper(new PageHelper()).GetPhoneNumber();
+            return Regex.Replace(new SettingsHelper(new PageHelper()).GetPhoneNumber(), @"[^\d]", string.Empty);
         }
 
         private static object ResolveMapCoordinates<TSource>(TSource source)
