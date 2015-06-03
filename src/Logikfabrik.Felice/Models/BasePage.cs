@@ -50,7 +50,7 @@ namespace Logikfabrik.Felice.Models
         /// </summary>
         [Display(
             Name = "Keywords",
-            Description = "Comma-separated keywords for the page.",
+            Description = "Comma-separated keywords for the page",
             GroupName = "SEO",
             Order = 200)]
         public string MetaKeywords { get; set; }

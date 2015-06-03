@@ -294,6 +294,7 @@
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\IPageHelper.cs" />
     <Compile Include="Helpers\LunchMenuHelper.cs" />
+    <Compile Include="Helpers\MenuHelper.cs" />
     <Compile Include="Helpers\OpeningHoursHelper.cs" />
     <Compile Include="Helpers\PageHelper.cs" />
     <Compile Include="Helpers\SettingsHelper.cs" />
@@ -372,6 +373,9 @@
     <Content Include="Umbraco\Config\Lang\en.xml" />
     <Content Include="Umbraco\Config\Lang\en_us.xml" />
     <Content Include="Umbraco\Config\Lang\sv.xml" />
+    <Content Include="Umbraco\Js\umbraco.directives.js" />
+    <Content Include="Umbraco\Js\umbraco.services.js" />
+    <Content Include="Umbraco\Views\Directives\umb-property.html" />
     <Content Include="Views\EatWithUsPage\Index.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\Shared\DishOfTheDay.cshtml" />

@@ -378,6 +378,11 @@
     <key alias="width">Bredd</key>
     <key alias="view">Titta på</key>
     <key alias="yes">Ja</key>
+    <!-- Felice -->
+    <key alias="metaDescription">Beskrivning</key>
+    <key alias="metaDescriptionDesc">En kort beskrivning av sidan</key>
+    <key alias="metaKeywords">Nyckelord</key>
+    <key alias="metaKeywordsDesc">Kommaseparerade nyckelord för sidan</key>
   </area>
   <area alias="graphicheadline">
     <key alias="backgroundcolor">Bakgrundsfärg</key>

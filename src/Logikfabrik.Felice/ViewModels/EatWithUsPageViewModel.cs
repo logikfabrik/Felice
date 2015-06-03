@@ -2,6 +2,8 @@
 {
     public class EatWithUsPageViewModel : BasePageViewModel
     {
+        // TODO: Use the MenuHelper and list the dishes on the menu.
+
         /// <summary>
         /// Gets or sets the first preamble.
         /// </summary>
