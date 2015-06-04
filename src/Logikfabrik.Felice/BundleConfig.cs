@@ -9,6 +9,8 @@ namespace Logikfabrik.Felice
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = true;
+
             bundles.Add(GetCssBundle());
             bundles.Add(GetJsBundle());
         }
@@ -17,6 +19,8 @@ namespace Logikfabrik.Felice
         {
             var commonCss = new Bundle("~/Assets/CommonCss");
 
+            commonCss.IncludeDirectory("~/Assets/packages", "*.css", true);
+            commonCss.IncludeDirectory("~/Assets/packages", "*.less", true);
             commonCss.IncludeDirectory("~/Assets/css/vendor", "*.css", true);
             commonCss.IncludeDirectory("~/Assets/css/app", "*.less", true);
             
@@ -31,6 +35,7 @@ namespace Logikfabrik.Felice
         {
             var commonJs = new Bundle("~/Assets/CommonJs");
 
+            commonJs.IncludeDirectory("~/Assets/packages", "*.js", true);
             commonJs.IncludeDirectory("~/Assets/js/vendor", "*.js", true);
             commonJs.IncludeDirectory("~/Assets/js/app", "*.js");
             commonJs.IncludeDirectory("~/Assets/js/app/factories", "*.js");
