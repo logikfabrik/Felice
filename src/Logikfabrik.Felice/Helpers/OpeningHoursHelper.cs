@@ -26,15 +26,6 @@ namespace Logikfabrik.Felice.Helpers
         /// <summary>
         /// Gets the opening hours of the day.
         /// </summary>
-        /// <returns>The opening hours of the day.</returns>
-        public Hours GetOpeningHoursOfTheDay()
-        {
-            return GetOpeningHoursOfTheDay(DateTime.Now);
-        }
-
-        /// <summary>
-        /// Gets the opening hours of the day.
-        /// </summary>
         /// <param name="date">The current date.</param>
         /// <returns>The opening hours of the day.</returns>
         /// <remarks>All opening hours are hours the restaurant is open. If no hours are returned the restaurant is closed.</remarks>
@@ -63,7 +54,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <param name="openingHours"></param>
         /// <param name="date">The current date.</param>
         /// <returns>True it the opening hours are for the current date; otherwise false.</returns>
-        public bool IsForDate(OpeningHour openingHours, DateTime date)
+        private bool IsForDate(OpeningHour openingHours, DateTime date)
         {
             if (openingHours == null)
                 throw new ArgumentNullException("openingHours");

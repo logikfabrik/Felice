@@ -2,12 +2,8 @@
     var url = '/api/OpeningHours';
     var dataFactory = {};
 
-    dataFactory.getOpeningHoursOfTheDay = function (date) {
-        return $http.get(url, {
-            params: {
-                date: date
-            }
-        });
+    dataFactory.getOpeningHoursOfTheDay = function () {
+        return $http.get(url);
     };
 
     return dataFactory;

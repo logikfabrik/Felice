@@ -1,10 +1,10 @@
 ﻿@model Logikfabrik.Felice.ViewModels.FindUsPageViewModel
 <section class="opening-hours">
     <h4>Öppettider v. @Model.OpeningHoursWeek</h4>
-    <ul>
+    <ol>
         @foreach (var hours in Model.OpeningHours)
         {
             <li>@hours.Date.ToString("yyyy-MM-dd"), @hours.Name, @hours.From.ToString("hh\\:mm") - @hours.To.ToString("hh\\:mm")</li>
         }
-    </ul>
+    </ol>
 </section>

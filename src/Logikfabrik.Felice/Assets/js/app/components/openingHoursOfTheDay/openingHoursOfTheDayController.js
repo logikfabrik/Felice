@@ -1,10 +1,9 @@
 ﻿app.controller('openingHoursOfTheDayController', ['$scope', 'lodash', 'openingHoursOfTheDayFactory',
     function ($scope, _, openingHoursOfTheDayFactory) {
         $scope.openingHours = null;
-        $scope.date = new Date();
 
-        function getOpeningHours(date) {
-            openingHoursOfTheDayFactory.getOpeningHoursOfTheDay(date).success(function (resp) {
+        function getOpeningHours() {
+            openingHoursOfTheDayFactory.getOpeningHoursOfTheDay().success(function (resp) {
                 $scope.openingHours = resp.Data;
             });
         }
@@ -13,6 +12,6 @@
             return !_.isEmpty($scope.openingHours);
         };
 
-        getOpeningHours($scope.date);
+        getOpeningHours();
 
     }]);

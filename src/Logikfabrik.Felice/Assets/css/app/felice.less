@@ -94,7 +94,11 @@ header {
 article {
     padding: 0 18px;
 
-    .dish-of-the-day, .opening-hours-of-the-day, .find-us-on-the-map, .menu-of-the-week {
+    .dish-of-the-day, 
+    .opening-hours-of-the-day, 
+    .find-us-on-the-map, 
+    .menu-of-the-week,
+    .opening-hours {
         margin: 36px 0;
 
         h4 {
@@ -120,15 +124,12 @@ article {
     }
 
     .find-us-on-the-map {
-        address {
-            display: inline;
-        }
-
         > div {
             margin: 0 auto 0;
-            max-width: 500px;
-            height: 200px;
-            border: 1px solid @black;
+            max-width: 510px;
+            height: 210px;
+            border: 6px solid @white;
+            background: @white;
         }
     }
 
@@ -145,6 +146,14 @@ article {
                     font-style: italic;
                 }
             }
+        }
+    }
+
+    .opening-hours {
+        ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿app.controller('findUsOnTheMapController', ['$scope', 'lodash', 'leaflet',
     function ($scope, _, L) {
-        $scope.init = function (lat, lng) {
+        $scope.init = function (lat, lng, address) {
             L.Icon.Default.imagePath = '/Assets/packages/leaflet-0.7.3/images/';
 
             var map = L.map('map', { zoomControl: false });
@@ -13,6 +13,6 @@
             var marker = L.marker([lat, lng]);
 
             marker.addTo(map);
-            marker.bindPopup("Restaurang Felicé").openPopup();
+            marker.bindPopup(address).openPopup();
         };
     }]);

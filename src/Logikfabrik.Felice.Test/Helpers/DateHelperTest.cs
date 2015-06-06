@@ -85,5 +85,31 @@ namespace Logikfabrik.Felice.Test.Helpers
             Assert.AreEqual(53, helper.GetWeeksOfYearISO8601(2015));
             Assert.AreEqual(52, helper.GetWeeksOfYearISO8601(2014));
         }
+
+        [TestMethod]
+        [Ignore]
+        // ReSharper disable once InconsistentNaming
+        public void GetDaysInWeekenUS()
+        {
+            SetCulture(enUS);
+
+            var helper = new DateHelper();
+            var days = helper.GetDaysInWeek(2015, 23);
+
+            // TODO: Finish unit test.
+        }
+
+        [TestMethod]
+        [Ignore]
+        // ReSharper disable once InconsistentNaming
+        public void GetDaysInWeeksvSE()
+        {
+            SetCulture(svSE);
+
+            var helper = new DateHelper();
+            var days = helper.GetDaysInWeek(2015, 23);
+
+            // TODO: Finish unit test.
+        }
     }
 }

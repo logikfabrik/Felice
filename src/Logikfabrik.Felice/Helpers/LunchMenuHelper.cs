@@ -73,15 +73,6 @@ namespace Logikfabrik.Felice.Helpers
         /// <summary>
         /// Gets the dish of the day.
         /// </summary>
-        /// <returns>The dish of the day.</returns>
-        public string GetDishOfTheDay()
-        {
-            return GetDishOfTheDay(DateTime.Now);
-        }
-
-        /// <summary>
-        /// Gets the dish of the day.
-        /// </summary>
         /// <param name="date">The current date.</param>
         /// <returns>The dish of the day.</returns>
         public string GetDishOfTheDay(DateTime date)
