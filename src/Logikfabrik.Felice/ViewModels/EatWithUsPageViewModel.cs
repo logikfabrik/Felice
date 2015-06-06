@@ -14,7 +14,7 @@
         /// </summary>
         public string Preamble2 { get; set; }
 
-        public bool HasMenu { get; set; }
+        public bool HasLunchMenu { get; set; }
 
         #region Lunch menu
 

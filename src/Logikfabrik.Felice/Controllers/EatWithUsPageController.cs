@@ -62,7 +62,7 @@ namespace Logikfabrik.Felice.Controllers
 
             var jm = Mapper.Map<EatWithUsPageViewModel>(model);
 
-            jm.HasMenu = menu != null;
+            jm.HasLunchMenu = menu != null;
 
             if (menu != null)
                 Mapper.Map(menu, jm);

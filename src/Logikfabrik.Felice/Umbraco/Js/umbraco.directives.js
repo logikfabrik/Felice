@@ -654,7 +654,7 @@ angular.module("umbraco.directives")
             var key = scope.key;
             localizationService.localize(key).then(function (value) {
                 // Felice: Modification to out-of-the-box JS for localization.
-                element.html((value == null) ? scope.default : value);
+                element.html((value === null) ? scope.default : value);
             });
         }
     };

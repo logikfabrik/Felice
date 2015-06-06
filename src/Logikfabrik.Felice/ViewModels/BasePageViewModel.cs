@@ -1,5 +1,4 @@
 ﻿using System;
-using Logikfabrik.Umbraco.Jet.Maps;
 
 namespace Logikfabrik.Felice.ViewModels
 {
@@ -67,10 +66,10 @@ namespace Logikfabrik.Felice.ViewModels
 
                 if (ZipCode == default(int))
                     return null;
-
+                
                 return string.IsNullOrWhiteSpace(City)
                     ? null
-                    : string.Format("{0}, {1:### ##} {2}", StreetAddress, ZipCode, City);
+                    : string.Format("{0}, {1:### ##} {2}", StreetAddress, ZipCode, City.ToUpperInvariant());
             }
         }
 
@@ -82,6 +81,6 @@ namespace Logikfabrik.Felice.ViewModels
         /// <summary>
         /// Gets or sets the map coordinates.
         /// </summary>
-        public GeoCoordinates MapCoordinates { get; set; }
+        public GeoCoordinatesViewModel MapCoordinates { get; set; }
     }
 }

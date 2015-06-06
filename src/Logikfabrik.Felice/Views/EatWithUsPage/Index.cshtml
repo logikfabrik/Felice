@@ -6,65 +6,72 @@
     }
 
     <h4>Lunchmeny v. @Model.Week</h4>
-    <p>@Model.Preamble1</p>
-    <p>@Model.Preamble2</p>
-    <ol>
-        @{
-            if (!string.IsNullOrWhiteSpace(Model.Monday))
-            {
-                <li>
-                    <h5>Måndag</h5>
-                    <p>@Model.Monday</p>
-                </li>
-            }
-
-            if (!string.IsNullOrWhiteSpace(Model.Tuesday))
-            {
-                <li>
-                    <h5>Tisdag</h5>
-                    <p>@Model.Tuesday</p>
-                </li>
-            }
-
-            if (!string.IsNullOrWhiteSpace(Model.Wednesday))
-            {
-                <li>
-                    <h5>Onsdag</h5>
-                    <p>@Model.Wednesday</p>
-                </li>
-            }
-
-            if (!string.IsNullOrWhiteSpace(Model.Thursday))
-            {
-                <li>
-                    <h5>Torsdag</h5>
-                    <p>@Model.Thursday</p>
-                </li>
-            }
-
-            if (!string.IsNullOrWhiteSpace(Model.Friday))
-            {
-                <li>
-                    <h5>Fredag</h5>
-                    <p>@Model.Friday</p>
-                </li>
-            }
-
-            if (!string.IsNullOrWhiteSpace(Model.Saturday))
-            {
-                <li>
-                    <h5>Lördag</h5>
-                    <p>@Model.Saturday</p>
-                </li>
-            }
-
-            if (!string.IsNullOrWhiteSpace(Model.Sunday))
-            {
-                <li>
-                    <h5>Söndag</h5>
-                    <p>@Model.Sunday</p>
-                </li>
-            }
+    @if (Model.HasLunchMenu)
+    {
+        <p>@Model.Preamble1</p>
+        <p>@Model.Preamble2</p>
+        <ol>
+            @{
+        if (!string.IsNullOrWhiteSpace(Model.Monday))
+        {
+            <li>
+                <h5>Måndag</h5>
+                <p>@Model.Monday</p>
+            </li>
         }
-    </ol>
+
+        if (!string.IsNullOrWhiteSpace(Model.Tuesday))
+        {
+            <li>
+                <h5>Tisdag</h5>
+                <p>@Model.Tuesday</p>
+            </li>
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.Wednesday))
+        {
+            <li>
+                <h5>Onsdag</h5>
+                <p>@Model.Wednesday</p>
+            </li>
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.Thursday))
+        {
+            <li>
+                <h5>Torsdag</h5>
+                <p>@Model.Thursday</p>
+            </li>
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.Friday))
+        {
+            <li>
+                <h5>Fredag</h5>
+                <p>@Model.Friday</p>
+            </li>
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.Saturday))
+        {
+            <li>
+                <h5>Lördag</h5>
+                <p>@Model.Saturday</p>
+            </li>
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.Sunday))
+        {
+            <li>
+                <h5>Söndag</h5>
+                <p>@Model.Sunday</p>
+            </li>
+        }
+            }
+        </ol>
+    }
+    else
+    {
+        <p>Det finns ingen lunchmeny publicerad denna vecka</p>
+    }
 </section>

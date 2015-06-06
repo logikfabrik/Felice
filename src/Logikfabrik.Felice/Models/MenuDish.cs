@@ -18,13 +18,19 @@ namespace Logikfabrik.Felice.Models
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        [Display(GroupName = "Dish")]
+        [Display(
+            Description = "A short description",
+            GroupName = "Dish",
+            Order = 100)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
-        [Display(GroupName = "Dish")]
+        [Display(
+            Description = "The price in SEK",
+            GroupName = "Dish",
+            Order = 200)]
         public decimal Price { get; set; }
     }
 }

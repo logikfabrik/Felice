@@ -25,20 +25,20 @@ namespace Logikfabrik.Felice.Models
         /// Gets or sets the year the lunch menu is for.
         /// </summary>
         [Display(
-            Name = "Year",
             Description = "The year this menu is for",
             GroupName = "Menu",
             Order = 100)]
+        [Required]
         public int Year { get; set; }
 
         /// <summary>
         /// Gets or sets the week the lunch menu is for.
         /// </summary>
         [Display(
-            Name = "Week",
             Description = "The week this menu is for",
             GroupName = "Menu",
             Order = 200)]
+        [Required]
         public int Week { get; set; }
 
         /// <summary>

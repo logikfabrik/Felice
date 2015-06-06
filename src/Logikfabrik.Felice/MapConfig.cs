@@ -7,6 +7,7 @@ using AutoMapper;
 using Logikfabrik.Felice.Helpers;
 using Logikfabrik.Felice.Models;
 using Logikfabrik.Felice.ViewModels;
+using Logikfabrik.Umbraco.Jet.Maps;
 using umbraco.interfaces;
 
 namespace Logikfabrik.Felice
@@ -19,10 +20,12 @@ namespace Logikfabrik.Felice
                 .MapBasePageViewModel<HomePage, HomePageViewModel>();
 
             Mapper.CreateMap<FindUsPage, FindUsPageViewModel>()
-                .MapBasePageViewModel<FindUsPage, FindUsPageViewModel>();
+                .MapBasePageViewModel<FindUsPage, FindUsPageViewModel>()
+                .ForMember(to => to.OpeningHoursWeek, options => options.ResolveUsing(ResolveCurrentWeek));
 
             Mapper.CreateMap<EatWithUsPage, EatWithUsPageViewModel>()
-                .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>();
+                .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>()
+                .ForMember(to => to.Week, options => options.ResolveUsing(ResolveCurrentWeek));
 
             Mapper.CreateMap<LunchMenu, EatWithUsPageViewModel>()
                 .ForMember(to => to.Name, options => options.Ignore())
@@ -34,6 +37,9 @@ namespace Logikfabrik.Felice
             Mapper.CreateMap<LunchMenu, MenuItemViewModel>()
                 .ForMember(to => to.Name, options => options.MapFrom(from => string.Format("v. {0}", from.Week)))
                 .ForMember(to => to.Url, options => options.ResolveUsing(ResolveLunchMenuUrl));
+
+            Mapper.CreateMap<Hours, HoursViewModel>();
+            Mapper.CreateMap<GeoCoordinates, GeoCoordinatesViewModel>();
         }
 
         public static IMappingExpression<TSource, TDestination> MapBasePageViewModel<TSource, TDestination>(this IMappingExpression<TSource, TDestination> map)
@@ -87,7 +93,15 @@ namespace Logikfabrik.Felice
         private static object ResolveMapCoordinates<TSource>(TSource source)
             where TSource : BasePage
         {
-            return new SettingsHelper(new PageHelper()).GetMapCoordinates();
+            var coordinates = new SettingsHelper(new PageHelper()).GetMapCoordinates();
+
+            return Mapper.Map<GeoCoordinatesViewModel>(coordinates);
+        }
+
+        private static object ResolveCurrentWeek<TSource>(TSource source)
+            where TSource : BasePage
+        {
+            return new DateHelper().GetWeekOfYearISO8601(DateTime.Now);
         }
     }
 }

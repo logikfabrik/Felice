@@ -1,5 +1,13 @@
 ﻿@model Logikfabrik.Felice.ViewModels.FindUsPageViewModel
 
 <section class="">
-    
+    Restaurang Felicé
+    <address>@Model.Address</address>
+    tfn. <a href="tel:@Model.PhoneNumber" title="tfn. @Model.PhoneNumber">@Model.PhoneNumber</a>
 </section>
+@{
+    Html.RenderPartial("OpeningHours", Model);
+}
+@{
+    Html.RenderPartial("FindUsOnTheMap", Model);
+}

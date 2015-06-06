@@ -106,9 +106,9 @@
       <HintPath>..\packages\UmbracoCms.Core.7.0.4\lib\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Logikfabrik.Umbraco.Jet, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uJet.3.1.0.0\lib\net45\Logikfabrik.Umbraco.Jet.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Logikfabrik.Umbraco.Jet, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uJet.3.1.1.0\lib\net45\Logikfabrik.Umbraco.Jet.dll</HintPath>
     </Reference>
     <Reference Include="Logikfabrik.Umbraco.Jet.Maps, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uJetMaps.0.0.2.0\lib\net45\Logikfabrik.Umbraco.Jet.Maps.dll</HintPath>
@@ -301,7 +301,9 @@
     <Compile Include="ViewModels\BasePageViewModel.cs" />
     <Compile Include="ViewModels\EatWithUsPageViewModel.cs" />
     <Compile Include="ViewModels\FindUsPageViewModel.cs" />
+    <Compile Include="ViewModels\GeoCoordinatesViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\HoursViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -394,6 +396,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FindUsPage\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FindUsPage\OpeningHours.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
