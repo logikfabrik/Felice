@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 
 namespace Logikfabrik.Felice.Test.Helpers
@@ -87,29 +88,29 @@ namespace Logikfabrik.Felice.Test.Helpers
         }
 
         [TestMethod]
-        [Ignore]
         // ReSharper disable once InconsistentNaming
         public void GetDaysInWeekenUS()
         {
             SetCulture(enUS);
 
             var helper = new DateHelper();
-            var days = helper.GetDaysInWeek(2015, 23);
+            var days = helper.GetDaysInWeek(2015, 23).ToArray();
 
-            // TODO: Finish unit test.
+            Assert.AreEqual(new DateTime(2015, 5, 31).Date, days.First().Date);
+            Assert.AreEqual(new DateTime(2015, 6, 6).Date, days.Last().Date);
         }
 
         [TestMethod]
-        [Ignore]
         // ReSharper disable once InconsistentNaming
         public void GetDaysInWeeksvSE()
         {
             SetCulture(svSE);
 
             var helper = new DateHelper();
-            var days = helper.GetDaysInWeek(2015, 23);
+            var days = helper.GetDaysInWeek(2015, 23).ToArray();
 
-            // TODO: Finish unit test.
+            Assert.AreEqual(new DateTime(2015, 6, 1).Date, days.First().Date);
+            Assert.AreEqual(new DateTime(2015, 6, 7).Date, days.Last().Date);
         }
     }
 }

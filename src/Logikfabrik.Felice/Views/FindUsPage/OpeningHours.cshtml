@@ -4,7 +4,7 @@
     <ol>
         @foreach (var hours in Model.OpeningHours)
         {
-            <li>@hours.Date.ToString("yyyy-MM-dd"), @hours.Name, @hours.From.ToString("hh\\:mm") - @hours.To.ToString("hh\\:mm")</li>
+            <li><span>@hours.Date.ToString("yyyy-MM-dd")</span> <span>@hours.Name</span> kl. @hours.From.ToString("hh\\:mm") - @hours.To.ToString("hh\\:mm")</li>
         }
     </ol>
 </section>

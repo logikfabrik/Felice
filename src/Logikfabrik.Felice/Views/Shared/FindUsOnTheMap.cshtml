@@ -5,7 +5,11 @@
     return;
 }
 
-<section class="find-us-on-the-map" data-ng-controller="findUsOnTheMapController" data-ng-init="init(@Model.MapCoordinates.Lat, @Model.MapCoordinates.Lng, '@Model.Address')" data-ng-cloak>
+@{
+    Func<double, string> getCoordinate = c => c.ToString(System.Globalization.NumberFormatInfo.InvariantInfo);
+}
+
+<section class="find-us-on-the-map" data-ng-controller="findUsOnTheMapController" data-ng-init="init(@getCoordinate(Model.MapCoordinates.Lat), @getCoordinate(Model.MapCoordinates.Lng), '@Model.Address')" data-ng-cloak>
     <h4>Hitta hit</h4>
     <div id="map"></div>
 </section>

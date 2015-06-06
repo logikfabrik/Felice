@@ -33,6 +33,10 @@ a {
     color: @black;
 }
 
+a[href^=tel] {
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
     margin: 0 0 18px;
@@ -94,9 +98,14 @@ header {
 article {
     padding: 0 18px;
 
-    .dish-of-the-day, 
-    .opening-hours-of-the-day, 
-    .find-us-on-the-map, 
+    .contact-us {
+        font-style: italic;
+        font-size: 3.6em;
+    }
+
+    .dish-of-the-day,
+    .opening-hours-of-the-day,
+    .find-us-on-the-map,
     .menu-of-the-week,
     .opening-hours {
         margin: 36px 0;
@@ -126,8 +135,8 @@ article {
     .find-us-on-the-map {
         > div {
             margin: 0 auto 0;
-            max-width: 510px;
-            height: 210px;
+            max-width: 516px;
+            height: 204px;
             border: 6px solid @white;
             background: @white;
         }
@@ -151,9 +160,27 @@ article {
 
     .opening-hours {
         ol {
+            text-align: left;
             list-style: none;
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
+            max-width: 516px;
+
+            li {
+                margin: 0 0 6px;
+
+                span {
+                    display: inline-block;
+                }
+
+                span:nth-of-type(1) {
+                    width: 96px;
+                }
+
+                span:nth-of-type(2) {
+                    width: 228px;
+                }
+            }
         }
     }
 }
@@ -267,5 +294,12 @@ footer {
                 display: none;
             }
         }
+    }
+}
+
+/* Print */
+@media print {
+    body {
+        background: none;
     }
 }

@@ -56,6 +56,16 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The days in week.</returns>
         public IEnumerable<DateTime> GetDaysInWeek(int year, int week)
         {
+            if (year < 1 || year > 9999)
+            {
+                throw new ArgumentOutOfRangeException("year");
+            }
+
+            if (week < 1)
+            {
+                throw new ArgumentOutOfRangeException("week");
+            }
+
             var days = new List<DateTime>();
             var date = FirstDateOfWeek(year, week);
 
@@ -73,6 +83,11 @@ namespace Logikfabrik.Felice.Helpers
         // ReSharper disable once InconsistentNaming
         public int GetWeeksOfYearISO8601(int year)
         {
+            if (year < 1 || year > 9999)
+            {
+                throw new ArgumentOutOfRangeException("year");
+            }
+
             // The 28th of December will always fall within the last week, according to ISO 8601.
             var date = new DateTime(year, 12, 28);
 
@@ -81,15 +96,22 @@ namespace Logikfabrik.Felice.Helpers
 
         private static DateTime FirstDateOfWeek(int year, int week)
         {
+            if (year < 1 || year > 9999)
+            {
+                throw new ArgumentOutOfRangeException("year");
+            }
+
+            if (week < 1)
+            {
+                throw new ArgumentOutOfRangeException("week");
+            }
+
             var date = new DateTime(year, 1, 1);
             var format = DateTimeFormatInfo.CurrentInfo;
             // ReSharper disable once PossibleNullReferenceException
             var offset = GetDaysBetweenDaysOfWeek(format.FirstDayOfWeek, date.DayOfWeek);
-
-            if (week <= 1)
-                week--;
-
-            return date.AddDays(offset).AddDays(week * 7);
+            
+            return date.AddDays((week - 1) * 7).AddDays(-1 * offset);
         }
 
         private static int GetDaysBetweenDaysOfWeek(DayOfWeek from, DayOfWeek to)
