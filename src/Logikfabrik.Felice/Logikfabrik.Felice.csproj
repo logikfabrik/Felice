@@ -324,7 +324,7 @@
     <Content Include="App_Plugins\Logikfabrik.Umbraco.Jet.Maps\app\views\editor.html" />
     <Content Include="App_Plugins\Logikfabrik.Umbraco.Jet.Maps\app\views\map.html" />
     <Content Include="Assets\css\vendor\normalize-2.1.3.1\normalize.css" />
-    <Content Include="Assets\img\app\bg.png" />
+    <Content Include="Assets\img\app\tileable_wood_texture.png" />
     <Content Include="Assets\img\app\img-1.png" />
     <Content Include="Assets\img\app\img-2.png" />
     <Content Include="Assets\img\app\img-3.png" />
