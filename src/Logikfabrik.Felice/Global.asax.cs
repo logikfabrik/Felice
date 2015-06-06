@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web.Optimization;
 using System.Web.Routing;
 using Logikfabrik.Felice.DataTypes;
 using Logikfabrik.Felice.Utilities;
@@ -22,7 +21,6 @@ namespace Logikfabrik.Felice
             base.OnApplicationStarted(sender, e);
 
             MapConfig.RegisterMaps();
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 

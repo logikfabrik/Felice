@@ -1,5 +1,10 @@
 ﻿@model Logikfabrik.Felice.ViewModels.BasePageViewModel
 
+@{
+    Bundles.Reference("~/Assets/CommonCss");
+    Bundles.Reference("~/Assets/CommonJs");
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -7,7 +12,7 @@
     @Html.HeadFor(Model)
     <title>@Model.Name - Restaurang Felicé</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic">
-    @Styles.Render("~/Assets/CommonCss")
+    @Bundles.RenderStylesheets()
 </head>
 <body data-ng-app="Felice">
     <header>
@@ -40,6 +45,6 @@
         </ul>
     </footer>
 
-    @Scripts.Render("~/Assets/CommonJs")
+    @Bundles.RenderScripts()
 </body>
 </html>
