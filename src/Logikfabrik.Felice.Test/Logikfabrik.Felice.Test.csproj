@@ -86,9 +86,9 @@
       <HintPath>..\packages\UmbracoCms.Core.7.0.4\lib\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Logikfabrik.Umbraco.Jet, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uJet.3.1.0.0\lib\net45\Logikfabrik.Umbraco.Jet.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Logikfabrik.Umbraco.Jet, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uJet.3.1.1.0\lib\net45\Logikfabrik.Umbraco.Jet.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
@@ -236,12 +236,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\EatWithUsPageControllerTest.cs" />
     <Compile Include="Helpers\DateHelperTest.cs" />
     <Compile Include="Helpers\LunchMenuHelperTest.cs" />
     <Compile Include="Helpers\OpeningHoursHelperTest.cs" />
     <Compile Include="Helpers\SettingsHelperTest.cs" />
-    <Compile Include="MapConfigTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

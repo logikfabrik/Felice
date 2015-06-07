@@ -1,14 +1,82 @@
-﻿using Logikfabrik.Felice.Helpers;
-using Logikfabrik.Felice.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-using Logikfabrik.Felice.DataTypes;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="SettingsHelperTest.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Test.Helpers
 {
+    using System.Linq;
+    using DataTypes;
+    using Felice.Helpers;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Models;
+    
+    /// <summary>
+    /// Test class for the SettingsHelper class.
+    /// </summary>
     [TestClass]
     public class SettingsHelperTest
     {
+        /// <summary>
+        /// Test function GetStreetAddress.
+        /// </summary>
+        [TestMethod]
+        public void CanGetStreetAddress()
+        {
+            var helper = new SettingsHelper(GetPageHelper());
+
+            Assert.AreEqual("Street address", helper.GetStreetAddress());
+        }
+
+        /// <summary>
+        /// Test function GetZipCode.
+        /// </summary>
+        [TestMethod]
+        public void CanGetZipCode()
+        {
+            var helper = new SettingsHelper(GetPageHelper());
+
+            Assert.AreEqual(12345, helper.GetZipCode());
+        }
+
+        /// <summary>
+        /// Test function GetCity.
+        /// </summary>
+        [TestMethod]
+        public void CanGetCity()
+        {
+            var helper = new SettingsHelper(GetPageHelper());
+
+            Assert.AreEqual("City", helper.GetCity());
+        }
+
+        /// <summary>
+        /// Test function GetPhoneNumber.
+        /// </summary>
+        [TestMethod]
+        public void CanGetPhoneNumber()
+        {
+            var helper = new SettingsHelper(GetPageHelper());
+
+            Assert.AreEqual("0123 567 89", helper.GetPhoneNumber());
+        }
+
+        /// <summary>
+        /// Test function GetOpeningHours.
+        /// </summary>
+        [TestMethod]
+        public void CanGetOpeningHours()
+        {
+            var helper = new SettingsHelper(GetPageHelper());
+
+            Assert.AreEqual(0, helper.GetOpeningHours().Count());
+        }
+
+        /// <summary>
+        /// Gets a helper.
+        /// </summary>
+        /// <returns>A helper.</returns>
         private static IPageHelper GetPageHelper()
         {
             var settings = new Settings
@@ -24,46 +92,6 @@ namespace Logikfabrik.Felice.Test.Helpers
             mock.Setup(m => m.GetPageOfType<Settings>()).Returns(settings);
 
             return mock.Object;
-        }
-
-        [TestMethod]
-        public void CanGetStreetAddress()
-        {
-            var helper = new SettingsHelper(GetPageHelper());
-
-            Assert.AreEqual("Street address", helper.GetStreetAddress());
-        }
-
-        [TestMethod]
-        public void CanGetZipCode()
-        {
-            var helper = new SettingsHelper(GetPageHelper());
-
-            Assert.AreEqual(12345, helper.GetZipCode());
-        }
-
-        [TestMethod]
-        public void CanGetCity()
-        {
-            var helper = new SettingsHelper(GetPageHelper());
-
-            Assert.AreEqual("City", helper.GetCity());
-        }
-
-        [TestMethod]
-        public void CanGetPhoneNumber()
-        {
-            var helper = new SettingsHelper(GetPageHelper());
-
-            Assert.AreEqual("0123 567 89", helper.GetPhoneNumber());
-        }
-
-        [TestMethod]
-        public void CanGetOpeningHours()
-        {
-            var helper = new SettingsHelper(GetPageHelper());
-
-            Assert.AreEqual(0, helper.GetOpeningHours().Count());
         }
     }
 }

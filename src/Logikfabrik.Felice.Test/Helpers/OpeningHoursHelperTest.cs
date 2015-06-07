@@ -1,34 +1,27 @@
-﻿using Logikfabrik.Felice.Helpers;
-using Logikfabrik.Felice.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
-using Logikfabrik.Felice.DataTypes;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="OpeningHoursHelperTest.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Test.Helpers
 {
+    using System;
+    using System.Linq;
+    using DataTypes;
+    using Felice.Helpers;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Models;
+    
+    /// <summary>
+    /// Test class for the OpeningHoursHelper class.
+    /// </summary>
     [TestClass]
     public class OpeningHoursHelperTest
     {
-        private static IPageHelper GetPageHelper()
-        {
-            var settings = new Settings
-            {
-                OpeningHours = new OpeningHours()
-                {
-                    new OpeningHour("Monday", DayOfWeek.Monday, new TimeSpan(10, 0, 0), new TimeSpan(17, 0, 0)),
-                    new OpeningHour("Saturday", DayOfWeek.Saturday, new TimeSpan(0, 0, 0), new TimeSpan(24, 0, 0)),
-                    new OpeningHour("Sunday", DayOfWeek.Sunday, new TimeSpan(0, 0, 0), new TimeSpan(24, 0, 0)),
-                    new OpeningHour("New Year's Eve", new DateTime(2014, 12, 31), new TimeSpan(0, 0, 0), new TimeSpan(24, 0, 0))
-                }
-            };
-            var mock = new Moq.Mock<IPageHelper>();
-
-            mock.Setup(m => m.GetPageOfType<Settings>()).Returns(settings);
-
-            return mock.Object;
-        }
-
+        /// <summary>
+        /// Test function GetOpeningHoursOfTheDay.
+        /// </summary>
         [TestMethod]
         public void CanGetOpeningHoursOfTheDay()
         {
@@ -47,6 +40,9 @@ namespace Logikfabrik.Felice.Test.Helpers
             Assert.AreEqual("Monday", openingHours2.Name);
         }
 
+        /// <summary>
+        /// Test function GetOpeningHoursOfTheDay.
+        /// </summary>
         [TestMethod]
         public void CanGetOpeningHoursOfTheDayWithSpecialOpeningHours()
         {
@@ -59,6 +55,9 @@ namespace Logikfabrik.Felice.Test.Helpers
             Assert.AreEqual("New Year's Eve", openingHours.Name);
         }
 
+        /// <summary>
+        /// Test function GetOpeningHoursOfTheWeek.
+        /// </summary>
         [TestMethod]
         public void CanGetOpeningHoursOfTheWeek()
         {
@@ -70,6 +69,9 @@ namespace Logikfabrik.Felice.Test.Helpers
             Assert.AreEqual(3, openingHours.Count());
         }
 
+        /// <summary>
+        /// Test function GetOpeningHoursOfTheWeek.
+        /// </summary>
         [TestMethod]
         public void CanGetOpeningHoursOfTheWeekWithSpecialOpeningHours()
         {
@@ -79,6 +81,29 @@ namespace Logikfabrik.Felice.Test.Helpers
             var openingHours = helper.GetOpeningHoursOfTheWeek(date);
 
             Assert.AreEqual(3, openingHours.Count());
+        }
+
+        /// <summary>
+        /// Gets a helper.
+        /// </summary>
+        /// <returns>A helper.</returns>
+        private static IPageHelper GetPageHelper()
+        {
+            var settings = new Settings
+            {
+                OpeningHours = new OpeningHours
+                {
+                    new OpeningHour("Monday", DayOfWeek.Monday, new TimeSpan(10, 0, 0), new TimeSpan(17, 0, 0)),
+                    new OpeningHour("Saturday", DayOfWeek.Saturday, new TimeSpan(0, 0, 0), new TimeSpan(24, 0, 0)),
+                    new OpeningHour("Sunday", DayOfWeek.Sunday, new TimeSpan(0, 0, 0), new TimeSpan(24, 0, 0)),
+                    new OpeningHour("New Year's Eve", new DateTime(2014, 12, 31), new TimeSpan(0, 0, 0), new TimeSpan(24, 0, 0))
+                }
+            };
+            var mock = new Moq.Mock<IPageHelper>();
+
+            mock.Setup(m => m.GetPageOfType<Settings>()).Returns(settings);
+
+            return mock.Object;
         }
     }
 }
