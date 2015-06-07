@@ -1,17 +1,25 @@
-﻿using System;
-using System.Text;
-using System.Web.Mvc;
-using Logikfabrik.Felice.ViewModels;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="HeadHtmlHelperExtensions.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Html
 {
+    using System;
+    using System.Text;
+    using System.Web.Mvc;
+    using ViewModels;
+
     public static class HeadHtmlHelperExtensions
     {
         public static MvcHtmlString HeadFor<TModel>(this HtmlHelper<TModel> htmlHelper, TModel model)
             where TModel : BasePageViewModel
         {
             if (model == null)
+            {
                 throw new ArgumentNullException("model");
+            }
 
             var builder = new StringBuilder();
 
@@ -20,7 +28,9 @@ namespace Logikfabrik.Felice.Html
             builder.AppendLine(GetTwitterMetadata(model));
 
             if (!htmlHelper.ViewContext.HttpContext.IsDebuggingEnabled)
+            {
                 builder.AppendLine(GetCanonicalLink(model.Url, htmlHelper.ViewContext.HttpContext.Request.IsSecureConnection));
+            }
 
             return new MvcHtmlString(builder.ToString());
         }
@@ -28,7 +38,9 @@ namespace Logikfabrik.Felice.Html
         private static string GetMetadata<TModel>(TModel model) where TModel : BasePageViewModel
         {
             if (model == null)
+            {
                 throw new ArgumentNullException("model");
+            }
 
             var builder = new StringBuilder();
 
@@ -46,7 +58,9 @@ namespace Logikfabrik.Felice.Html
             where TModel : BasePageViewModel
         {
             if (model == null)
+            {
                 throw new ArgumentNullException("model");
+            }
 
             var builder = new StringBuilder();
 
@@ -56,8 +70,12 @@ namespace Logikfabrik.Felice.Html
             builder.AppendLine(GetOpenGraphMetadataTag("og:description", model.MetaDescription));
 
             if (!htmlHelper.ViewContext.HttpContext.IsDebuggingEnabled)
-                builder.AppendLine(GetOpenGraphMetadataTag("og:url",
+            {
+                builder.AppendLine(
+                    GetOpenGraphMetadataTag(
+                    "og:url",
                     GetCanonicalUrl(model.Url, htmlHelper.ViewContext.HttpContext.Request.IsSecureConnection)));
+            }
 
             return builder.ToString();
         }
@@ -66,7 +84,9 @@ namespace Logikfabrik.Felice.Html
             where TModel : BasePageViewModel
         {
             if (model == null)
+            {
                 throw new ArgumentNullException("model");
+            }
 
             var builder = new StringBuilder();
 
@@ -80,7 +100,9 @@ namespace Logikfabrik.Felice.Html
         private static string GetOpenGraphMetadataTag(string property, string content)
         {
             if (string.IsNullOrWhiteSpace(property))
+            {
                 throw new ArgumentException("Property cannot be null or white space.", "property");
+            }
 
             return string.Format("<meta property=\"{0}\" content=\"{1}\" />", property, content);
         }
@@ -88,7 +110,9 @@ namespace Logikfabrik.Felice.Html
         private static string GetMetadataTag(string name, string content)
         {
             if (string.IsNullOrWhiteSpace(name))
+            {
                 throw new ArgumentException("Name cannot be null or white space.", "name");
+            }
 
             return string.Format("<meta name=\"{0}\" content=\"{1}\" />", name, content);
         }
@@ -103,7 +127,9 @@ namespace Logikfabrik.Felice.Html
         private static string GetCanonicalUrl(string url, bool ssl)
         {
             if (string.IsNullOrWhiteSpace(url))
+            {
                 return null;
+            }
 
             var protocol = ssl ? "https" : "http";
 

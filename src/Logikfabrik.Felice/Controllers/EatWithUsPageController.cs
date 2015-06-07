@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using AutoMapper;
-using Logikfabrik.Felice.Helpers;
-using Logikfabrik.Felice.Models;
-using Logikfabrik.Felice.ViewModels;
-using Logikfabrik.Umbraco.Jet.Web.Mvc;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="EatWithUsPageController.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using Helpers;
+    using Models;
+    using Umbraco.Jet.Web.Mvc;
+    using ViewModels;
+
     public class EatWithUsPageController : JetController
     {
         private readonly LunchMenuHelper lunchMenuHelper;
@@ -51,22 +57,22 @@ namespace Logikfabrik.Felice.Controllers
         {
             var lunchMenu = this.lunchMenuHelper.GetLunchMenuOfTheWeek(DateTime.Now);
 
-            return Index(model, lunchMenu);
+            return this.Index(model, lunchMenu);
         }
 
         [ActionName("ViewLunchMenu")]
         public ActionResult Index(int year, int week)
         {
-            var model = pageHelper.GetPageOfType<EatWithUsPage>();
+            var model = this.pageHelper.GetPageOfType<EatWithUsPage>();
 
             if (model == null)
             {
-                return HttpNotFound();
+                return this.HttpNotFound();
             }
                 
             var lunchMenu = this.lunchMenuHelper.GetLunchMenuOfTheWeek(year, week);
 
-            return lunchMenu == null ? HttpNotFound() : Index(model, lunchMenu);
+            return lunchMenu == null ? this.HttpNotFound() : this.Index(model, lunchMenu);
         }
 
         private ActionResult Index(EatWithUsPage model, LunchMenu lunchMenu)
@@ -85,7 +91,7 @@ namespace Logikfabrik.Felice.Controllers
 
             jm.Menu = Mapper.Map<IEnumerable<MenuDishViewModel>>(this.menuHelper.GetDishes());
 
-            return View("Index", jm);
+            return this.View("Index", jm);
         }
     }
 }

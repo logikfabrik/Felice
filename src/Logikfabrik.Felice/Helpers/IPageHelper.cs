@@ -1,7 +1,13 @@
-﻿using System.Collections.Generic;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="IPageHelper.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Helpers
 {
+    using System.Collections.Generic;
+
     public interface IPageHelper
     {
         T GetPageOfType<T>() 

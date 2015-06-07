@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Logikfabrik.Umbraco.Jet.Extensions;
-using umbraco;
-using umbraco.interfaces;
-using Umbraco.Core.Models;
-using Umbraco.Web;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="NodeExtensions.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Extensions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using umbraco;
+    using umbraco.interfaces;
+    using global::Umbraco.Core.Models;
+    using Umbraco.Jet.Extensions;
+    using global::Umbraco.Web;
+
     public static class NodeExtensions
     {
         public static IPublishedContent GetContent(this INode node)
@@ -23,7 +29,9 @@ namespace Logikfabrik.Felice.Extensions
                 yield return child;
 
                 foreach (var grandChild in child.GetDescendants())
+                {
                     yield return grandChild;
+                }
             }
         }
 

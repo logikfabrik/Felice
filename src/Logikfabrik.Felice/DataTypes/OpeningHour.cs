@@ -1,7 +1,13 @@
-﻿using System;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="OpeningHour.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.DataTypes
 {
+    using System;
+
     public class OpeningHour
     {
         private readonly string name;
@@ -25,7 +31,9 @@ namespace Logikfabrik.Felice.DataTypes
         private OpeningHour(string name, TimeSpan from, TimeSpan to)
         {
             if (string.IsNullOrWhiteSpace(name))
+            {
                 throw new ArgumentException("Name cannot be null or white space.", "name");
+            }
 
             this.name = name;
             this.from = from;
@@ -35,26 +43,56 @@ namespace Logikfabrik.Felice.DataTypes
         /// <summary>
         /// Gets the name.
         /// </summary>
-        public string Name { get { return this.name; } }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+        }
 
         /// <summary>
         /// Gets day of week.
         /// </summary>
-        public DayOfWeek? DayOfWeek { get { return this.dayOfWeek; } }
+        public DayOfWeek? DayOfWeek
+        {
+            get
+            {
+                return this.dayOfWeek;
+            }
+        }
 
         /// <summary>
         /// Gets date.
         /// </summary>
-        public DateTime? Date { get { return this.date; } }
+        public DateTime? Date
+        {
+            get
+            {
+                return this.date;
+            }
+        }
 
         /// <summary>
         /// Gets time from.
         /// </summary>
-        public TimeSpan From { get { return this.from; } }
+        public TimeSpan From
+        {
+            get
+            {
+                return this.from;
+            }
+        }
 
         /// <summary>
         /// Gets time to.
         /// </summary>
-        public TimeSpan To { get { return this.to; } }
+        public TimeSpan To
+        {
+            get
+            {
+                return this.to;
+            }
+        }
     }
 }

@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Logikfabrik.Felice.Models;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="LunchMenuHelper.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Helpers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Models;
+
     public class LunchMenuHelper
     {
         private readonly IPageHelper pageHelper;
@@ -13,10 +19,14 @@ namespace Logikfabrik.Felice.Helpers
         public LunchMenuHelper(IPageHelper pageHelper, DateHelper dateHelper)
         {
             if (pageHelper == null)
+            {
                 throw new ArgumentNullException("pageHelper");
+            }
 
             if (dateHelper == null)
+            {
                 throw new ArgumentNullException("dateHelper");
+            }
 
             this.pageHelper = pageHelper;
             this.dateHelper = dateHelper;
@@ -81,7 +91,9 @@ namespace Logikfabrik.Felice.Helpers
             var menu = GetLunchMenuOfTheWeek(date);
 
             if (menu == null)
+            {
                 return null;
+            }
 
             string dish = null;
 

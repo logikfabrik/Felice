@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="DateHelper.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Helpers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+
     public class DateHelper
     {
         /// <summary>
@@ -27,8 +33,10 @@ namespace Logikfabrik.Felice.Helpers
                     case 0:
                         date = firstDayOfYear.AddDays(-1);
                         continue;
+
                     case 53:
                         return lastDayOfYear.DayOfWeek < DayOfWeek.Thursday ? 1 : weekOfYear;
+
                     default:
                         return weekOfYear;
                 }
@@ -70,7 +78,9 @@ namespace Logikfabrik.Felice.Helpers
             var date = FirstDateOfWeek(year, week);
 
             for (var i = 0; i < 7; i++)
+            {
                 days.Add(date.AddDays(i));
+            }
 
             return days;
         }
@@ -117,7 +127,9 @@ namespace Logikfabrik.Felice.Helpers
         private static int GetDaysBetweenDaysOfWeek(DayOfWeek from, DayOfWeek to)
         {
             if (from == to)
+            {
                 return 0;
+            }
 
             var c = (int)from;
             var d = (int)to;

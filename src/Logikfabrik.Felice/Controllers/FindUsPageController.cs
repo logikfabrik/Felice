@@ -1,14 +1,20 @@
-﻿using AutoMapper;
-using Logikfabrik.Felice.Helpers;
-using Logikfabrik.Felice.Models;
-using Logikfabrik.Felice.ViewModels;
-using Logikfabrik.Umbraco.Jet.Web.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="FindUsPageController.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using Helpers;
+    using Models;
+    using Umbraco.Jet.Web.Mvc;
+    using ViewModels;
+
     public class FindUsPageController : JetController
     {
         private readonly OpeningHoursHelper openingHoursHelper;
@@ -40,7 +46,7 @@ namespace Logikfabrik.Felice.Controllers
             jm.OpeningHours =
                 Mapper.Map<IEnumerable<HoursViewModel>>(this.openingHoursHelper.GetOpeningHoursOfTheWeek(DateTime.Now));
 
-            return View(jm);
+            return this.View(jm);
         }
     }
 }

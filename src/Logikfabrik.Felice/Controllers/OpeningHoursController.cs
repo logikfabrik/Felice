@@ -1,10 +1,16 @@
-﻿using System;
-using System.Web.Mvc;
-using Logikfabrik.Felice.Helpers;
-using Umbraco.Web.WebApi;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="OpeningHoursController.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using Helpers;
+    using global::Umbraco.Web.WebApi;
+
     public class OpeningHoursController : UmbracoApiController
     {
         private readonly OpeningHoursHelper openingHoursHelper;
@@ -17,7 +23,9 @@ namespace Logikfabrik.Felice.Controllers
         public OpeningHoursController(OpeningHoursHelper openingHoursHelper)
         {
             if (openingHoursHelper == null)
+            {
                 throw new ArgumentNullException("openingHoursHelper");
+            }
 
             this.openingHoursHelper = openingHoursHelper;
         }
@@ -28,7 +36,9 @@ namespace Logikfabrik.Felice.Controllers
             var hours = this.openingHoursHelper.GetOpeningHoursOfTheDay(date);
 
             if (hours == null)
+            {
                 return new JsonResult { Data = new { } };
+            }
 
             return new JsonResult
             {

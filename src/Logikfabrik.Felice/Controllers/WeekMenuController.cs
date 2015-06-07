@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using AutoMapper;
-using Logikfabrik.Felice.Helpers;
-using Logikfabrik.Felice.ViewModels;
-using Umbraco.Web.Mvc;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="WeekMenuController.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using Helpers;
+    using global::Umbraco.Web.Mvc;
+    using ViewModels;
+
     public class WeekMenuController : SurfaceController
     {
         private readonly LunchMenuHelper lunchMenuHelper;
@@ -20,7 +26,9 @@ namespace Logikfabrik.Felice.Controllers
         public WeekMenuController(LunchMenuHelper lunchMenuHelper)
         {
             if (lunchMenuHelper == null)
+            {
                 throw new ArgumentNullException("lunchMenuHelper");
+            }
 
             this.lunchMenuHelper = lunchMenuHelper;
         }
@@ -30,7 +38,7 @@ namespace Logikfabrik.Felice.Controllers
         {
             var menus = this.lunchMenuHelper.GetTheNext5LunchMenus(DateTime.Now);
 
-            return PartialView(Mapper.Map<IEnumerable<MenuItemViewModel>>(menus));
+            return this.PartialView(Mapper.Map<IEnumerable<MenuItemViewModel>>(menus));
         }
     }
 }
