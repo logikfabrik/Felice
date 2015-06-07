@@ -1,7 +1,13 @@
-﻿using Logikfabrik.Umbraco.Jet;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="LunchMenus.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Models
 {
+    using Umbraco.Jet;
+
     [DocumentType(
         "Lunch menus",
         Description = "Lunch menus",

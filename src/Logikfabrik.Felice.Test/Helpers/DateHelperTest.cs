@@ -115,7 +115,7 @@ namespace Logikfabrik.Felice.Test.Helpers
         /// Test function GetDaysInWeek for culture en-US.
         /// </summary>
         [TestMethod]
-        public void GetDaysInWeekenUs()
+        public void GetDaysInWeekEnUs()
         {
             SetCulture(EnUs);
 
@@ -130,7 +130,7 @@ namespace Logikfabrik.Felice.Test.Helpers
         /// Test function GetDaysInWeek for culture sv-SE.
         /// </summary>
         [TestMethod]
-        public void GetDaysInWeeksvSe()
+        public void GetDaysInWeekSvSe()
         {
             SetCulture(SvSe);
 

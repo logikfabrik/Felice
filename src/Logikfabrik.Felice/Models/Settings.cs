@@ -1,10 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Logikfabrik.Felice.DataTypes;
-using Logikfabrik.Umbraco.Jet;
-using Logikfabrik.Umbraco.Jet.Maps;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="Settings.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using DataTypes;
+    using Umbraco.Jet;
+    using Umbraco.Jet.Maps;
+
     [DocumentType(
         "Settings",
         Description = "Site settings",

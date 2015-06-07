@@ -1,8 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Logikfabrik.Umbraco.Jet;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="LunchMenu.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using Umbraco.Jet;
+
     [DocumentType(
         "Lunch menu",
         Description = "A lunch menu for a full week",

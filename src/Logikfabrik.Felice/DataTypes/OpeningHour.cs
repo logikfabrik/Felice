@@ -35,26 +35,26 @@ namespace Logikfabrik.Felice.DataTypes
         /// <summary>
         /// Gets the name.
         /// </summary>
-        public string Name { get { return name; } }
+        public string Name { get { return this.name; } }
 
         /// <summary>
         /// Gets day of week.
         /// </summary>
-        public DayOfWeek? DayOfWeek { get { return dayOfWeek; } }
+        public DayOfWeek? DayOfWeek { get { return this.dayOfWeek; } }
 
         /// <summary>
         /// Gets date.
         /// </summary>
-        public DateTime? Date { get { return date; } }
+        public DateTime? Date { get { return this.date; } }
 
         /// <summary>
         /// Gets time from.
         /// </summary>
-        public TimeSpan From { get { return from; } }
+        public TimeSpan From { get { return this.from; } }
 
         /// <summary>
         /// Gets time to.
         /// </summary>
-        public TimeSpan To { get { return to; } }
+        public TimeSpan To { get { return this.to; } }
     }
 }

@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Logikfabrik.Umbraco.Jet;
-using Logikfabrik.Umbraco.Jet.Web.Mvc;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="StandardPage.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using Umbraco.Jet;
+    using Umbraco.Jet.Web.Mvc;
+
     [DocumentType(
         "Standard page",
         Description = "Document type for a standard page",
@@ -12,6 +18,9 @@ namespace Logikfabrik.Felice.Models
     [PreviewTemplate]
     public class StandardPage : BasePage
     {
+        /// <summary>
+        /// Gets or sets umbracoNaviHide.
+        /// </summary>
         [Display(Name = "Navigable")]
         [ScaffoldColumn(true)]
         // ReSharper disable once InconsistentNaming

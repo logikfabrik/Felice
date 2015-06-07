@@ -1,8 +1,14 @@
-﻿using Logikfabrik.Umbraco.Jet;
-using System.ComponentModel.DataAnnotations;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="MenuDish.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using Umbraco.Jet;
+
     [DocumentType(
         "Menu dish",
         Description = "A menu dish",

@@ -38,7 +38,7 @@ namespace Logikfabrik.Felice.Controllers
 
             return
                 PartialView(home == null
-                    ? new MenuItemViewModel[] {}
+                    ? new MenuItemViewModel[] { }
                     : Mapper.Map<IEnumerable<MenuItemViewModel>>(
                         home.GetChildNodes().Where(ShowInMenu)));
         }

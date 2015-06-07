@@ -67,9 +67,9 @@ namespace Logikfabrik.Felice.ViewModels
                 if (ZipCode == default(int))
                     return null;
                 
-                return string.IsNullOrWhiteSpace(City)
+                return string.IsNullOrWhiteSpace(this.City)
                     ? null
-                    : string.Format("{0}, {1:### ##} {2}", StreetAddress, ZipCode, City.ToUpperInvariant());
+                    : string.Format("{0}, {1:### ##} {2}", this.StreetAddress, this.ZipCode, this.City.ToUpperInvariant());
             }
         }
 
