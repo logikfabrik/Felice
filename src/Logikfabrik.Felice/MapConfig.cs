@@ -24,14 +24,10 @@ namespace Logikfabrik.Felice
                 .ForMember(to => to.OpeningHoursWeek, options => options.ResolveUsing(ResolveCurrentWeek));
 
             Mapper.CreateMap<EatWithUsPage, EatWithUsPageViewModel>()
-                .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>()
-                .ForMember(to => to.Week, options => options.ResolveUsing(ResolveCurrentWeek));
+                .MapBasePageViewModel<EatWithUsPage, EatWithUsPageViewModel>();
 
-            Mapper.CreateMap<LunchMenu, EatWithUsPageViewModel>()
-                .ForMember(to => to.Name, options => options.Ignore())
-                .ForMember(to => to.MetaDescription, options => options.Ignore())
-                .ForMember(to => to.MetaKeywords, options => options.Ignore());
-
+            Mapper.CreateMap<LunchMenu, LunchMenuViewModel>();
+            Mapper.CreateMap<MenuDish, MenuDishViewModel>();
             Mapper.CreateMap<INode, MenuItemViewModel>();
 
             Mapper.CreateMap<LunchMenu, MenuItemViewModel>()

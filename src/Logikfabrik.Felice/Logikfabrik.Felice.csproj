@@ -304,6 +304,8 @@
     <Compile Include="ViewModels\GeoCoordinatesViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\HoursViewModel.cs" />
+    <Compile Include="ViewModels\LunchMenuViewModel.cs" />
+    <Compile Include="ViewModels\MenuDishViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -399,6 +401,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FindUsPage\OpeningHours.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EatWithUsPage\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EatWithUsPage\LunchMenu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

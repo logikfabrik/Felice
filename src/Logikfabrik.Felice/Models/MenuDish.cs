@@ -1,6 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Logikfabrik.Umbraco.Jet;
 using System.ComponentModel.DataAnnotations;
-using Logikfabrik.Umbraco.Jet;
 
 namespace Logikfabrik.Felice.Models
 {
@@ -10,11 +9,6 @@ namespace Logikfabrik.Felice.Models
         Icon = "icon-food")]
     public class MenuDish
     {
-        [Display(Name = "Navigable")]
-        [DefaultValue(true)]
-        // ReSharper disable once InconsistentNaming
-        public bool umbracoNaviHide { get; set; }
-
         /// <summary>
         /// Gets or sets the description.
         /// </summary>

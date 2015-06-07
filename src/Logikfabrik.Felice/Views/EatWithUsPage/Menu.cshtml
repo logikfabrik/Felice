@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Logikfabrik.Felice.ViewModels.MenuDishViewModel>
+
+<section class="">
+    <ul>
+        @foreach (var dish in Model)
+        {
+            <li>@dish.Name</li>
+        }
+    </ul>
+</section>

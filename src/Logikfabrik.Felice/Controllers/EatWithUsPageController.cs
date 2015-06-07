@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using Logikfabrik.Felice.Helpers;
@@ -11,6 +12,7 @@ namespace Logikfabrik.Felice.Controllers
     public class EatWithUsPageController : JetController
     {
         private readonly LunchMenuHelper lunchMenuHelper;
+        private readonly MenuHelper menuHelper;
         private readonly PageHelper pageHelper;
 
         public EatWithUsPageController()
@@ -19,27 +21,37 @@ namespace Logikfabrik.Felice.Controllers
         }
 
         public EatWithUsPageController(PageHelper pageHelper)
-            : this(new LunchMenuHelper(pageHelper, new DateHelper()))
+            : this(new LunchMenuHelper(pageHelper, new DateHelper()), new MenuHelper(pageHelper))
         {
             if (pageHelper == null)
+            {
                 throw new ArgumentNullException("pageHelper");
+            }
 
             this.pageHelper = pageHelper;
         }
 
-        public EatWithUsPageController(LunchMenuHelper lunchMenuHelper)
+        public EatWithUsPageController(LunchMenuHelper lunchMenuHelper, MenuHelper menuHelper)
         {
             if (lunchMenuHelper == null)
+            {
                 throw new ArgumentNullException("lunchMenuHelper");
+            }
+
+            if (menuHelper == null)
+            {
+                throw new ArgumentNullException("menuHelper");
+            }
 
             this.lunchMenuHelper = lunchMenuHelper;
+            this.menuHelper = menuHelper;
         }
 
         public ActionResult Index(EatWithUsPage model)
         {
-            var menu = this.lunchMenuHelper.GetLunchMenuOfTheWeek(DateTime.Now);
+            var lunchMenu = this.lunchMenuHelper.GetLunchMenuOfTheWeek(DateTime.Now);
 
-            return Index(model, menu);
+            return Index(model, lunchMenu);
         }
 
         [ActionName("ViewLunchMenu")]
@@ -48,24 +60,30 @@ namespace Logikfabrik.Felice.Controllers
             var model = pageHelper.GetPageOfType<EatWithUsPage>();
 
             if (model == null)
+            {
                 return HttpNotFound();
+            }
+                
+            var lunchMenu = this.lunchMenuHelper.GetLunchMenuOfTheWeek(year, week);
 
-            var menu = this.lunchMenuHelper.GetLunchMenuOfTheWeek(year, week);
-
-            return menu == null ? HttpNotFound() : Index(model, menu);
+            return lunchMenu == null ? HttpNotFound() : Index(model, lunchMenu);
         }
 
-        private ActionResult Index(EatWithUsPage model, LunchMenu menu)
+        private ActionResult Index(EatWithUsPage model, LunchMenu lunchMenu)
         {
             if (model == null)
-                throw new ArgumentNullException("menu");
-
+            {
+                throw new ArgumentNullException("lunchMenu");
+            }
+            
             var jm = Mapper.Map<EatWithUsPageViewModel>(model);
 
-            jm.HasLunchMenu = menu != null;
+            if (lunchMenu != null)
+            {
+                jm.LunchMenu = Mapper.Map<LunchMenuViewModel>(lunchMenu);
+            }
 
-            if (menu != null)
-                Mapper.Map(menu, jm);
+            jm.Menu = Mapper.Map<IEnumerable<MenuDishViewModel>>(this.menuHelper.GetDishes());
 
             return View("Index", jm);
         }

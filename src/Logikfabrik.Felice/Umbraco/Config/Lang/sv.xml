@@ -405,6 +405,18 @@
     <key alias="descriptionDesc">En kort beskrivning</key>
     <key alias="price">Pris</key>
     <key alias="priceDesc">Pris i SEK</key>
+    <key alias="streetAddress">Gatuadress</key>
+    <key alias="streetAddressDesc">Restaurangens gatuadress</key>
+    <key alias="zipCode">Postnummer</key>
+    <key alias="zipCodeDesc">Restaurangens postnummer</key>
+    <key alias="city">Stad</key>
+    <key alias="cityDesc">Restaurangens stad</key>
+    <key alias="phoneNumber">Telefonnummer</key>
+    <key alias="phoneNumberDesc">Restaurangens telefonnummer</key>
+    <key alias="mapCoordinates">Koordinater</key>
+    <key alias="mapCoordinatesDesc">Restaurangens koordinater</key>
+    <key alias="openingHours">Öppettider</key>
+    <key alias="openingHoursDesc">Restaurangens öppettider</key>
   </area>
   <area alias="graphicheadline">
     <key alias="backgroundcolor">Bakgrundsfärg</key>

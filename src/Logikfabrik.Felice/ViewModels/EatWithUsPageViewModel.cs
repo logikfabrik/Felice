@@ -1,68 +1,17 @@
-﻿namespace Logikfabrik.Felice.ViewModels
+﻿using System.Collections.Generic;
+
+namespace Logikfabrik.Felice.ViewModels
 {
     public class EatWithUsPageViewModel : BasePageViewModel
     {
-        // TODO: Use the MenuHelper and list the dishes on the menu.
+        /// <summary>
+        /// Gets or sets the lunch menu.
+        /// </summary>
+        public LunchMenuViewModel LunchMenu { get; set; }
 
         /// <summary>
-        /// Gets or sets the first preamble.
+        /// Gets or sets the menu (dishes).
         /// </summary>
-        public string Preamble1 { get; set; }
-
-        /// <summary>
-        /// Gets or sets the second preamble.
-        /// </summary>
-        public string Preamble2 { get; set; }
-
-        public bool HasLunchMenu { get; set; }
-
-        #region Lunch menu
-
-        /// <summary>
-        /// Gets or sets the year the lunch menu is for.
-        /// </summary>
-        public int Year { get; set; }
-
-        /// <summary>
-        /// Gets or sets the week the lunch menu is for.
-        /// </summary>
-        public int Week { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the dish for Monday.
-        /// </summary>
-        public string Monday { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dish for Tuesday.
-        /// </summary>
-        public string Tuesday { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dish for Wednesday.
-        /// </summary>
-        public string Wednesday { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dish for Thursday.
-        /// </summary>
-        public string Thursday { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dish for Friday.
-        /// </summary>
-        public string Friday { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dish for Saturday.
-        /// </summary>
-        public string Saturday { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dish for Sunday.
-        /// </summary>
-        public string Sunday { get; set; }
-
-        #endregion
+        public IEnumerable<MenuDishViewModel> Menu { get; set; }
     }
 }
