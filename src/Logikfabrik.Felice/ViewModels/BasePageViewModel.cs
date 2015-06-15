@@ -1,7 +1,16 @@
-﻿using System;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="BasePageViewModel.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.ViewModels
 {
+    using System;
+
+    /// <summary>
+    /// Page view model base class.
+    /// </summary>
     public abstract class BasePageViewModel
     {
         /// <summary>
@@ -61,11 +70,15 @@ namespace Logikfabrik.Felice.ViewModels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(StreetAddress))
+                if (string.IsNullOrWhiteSpace(this.StreetAddress))
+                {
                     return null;
+                }
 
-                if (ZipCode == default(int))
+                if (this.ZipCode == default(int))
+                {
                     return null;
+                }
                 
                 return string.IsNullOrWhiteSpace(this.City)
                     ? null

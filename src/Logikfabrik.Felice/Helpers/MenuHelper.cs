@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using Logikfabrik.Felice.Models;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="MenuHelper.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Helpers
 {
+    using System;
+    using System.Collections.Generic;
+    using Models;
+
     /// <summary>
     /// Helper class for restaurant menu.
     /// </summary>
@@ -14,7 +20,9 @@ namespace Logikfabrik.Felice.Helpers
         public MenuHelper(IPageHelper pageHelper)
         {
             if (pageHelper == null)
+            {
                 throw new ArgumentNullException("pageHelper");
+            }
 
             this.pageHelper = pageHelper;
         }

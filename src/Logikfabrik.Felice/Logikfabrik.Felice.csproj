@@ -259,7 +259,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CassetteConfiguration.cs" />
+    <Compile Include="CassetteBundleConfiguration.cs" />
     <Compile Include="Controllers\DishController.cs" />
     <Compile Include="Controllers\EatWithUsPageController.cs" />
     <Compile Include="Controllers\FindUsPageController.cs" />

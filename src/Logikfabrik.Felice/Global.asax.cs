@@ -1,13 +1,19 @@
-﻿using System;
-using System.Web.Routing;
-using Logikfabrik.Felice.DataTypes;
-using Logikfabrik.Felice.Utilities;
-using Logikfabrik.Umbraco.Jet.Mappings;
-using Logikfabrik.Umbraco.Jet.Web.Data.Converters;
-using Umbraco.Web;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="Global.asax" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice
 {
+    using System;
+    using System.Web.Routing;
+    using DataTypes;
+    using Umbraco.Jet.Mappings;
+    using Umbraco.Jet.Web.Data.Converters;
+    using global::Umbraco.Web;
+    using Utilities;
+    
     public class Global : UmbracoApplication
     {
         protected override void OnApplicationStarting(object sender, EventArgs e)
@@ -27,13 +33,17 @@ namespace Logikfabrik.Felice
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             if (Context.IsDebuggingEnabled)
+            {
                 return;
+            }
 
             var url = Request.Url.ToString();
             var ssl = Request.IsSecureConnection;
 
             if (!UrlUtility.ShouldRedirectPermanent(url, ssl))
+            {
                 return;
+            }
 
             Response.RedirectPermanent(UrlUtility.GetRedirectUrl(url, ssl));
         }

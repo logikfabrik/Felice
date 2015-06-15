@@ -32,20 +32,6 @@ namespace Logikfabrik.Felice.Helpers
             this.dateHelper = dateHelper;
         }
 
-        private IEnumerable<LunchMenu> GetLunchMenus()
-        {
-            var lunchMenusPage = this.pageHelper.GetPageOfType<LunchMenus>();
-            var lunchMenuPages = this.pageHelper.GetChildPagesOfType<LunchMenus, LunchMenu>().ToArray();
-
-            foreach (var page in lunchMenuPages)
-            {
-                page.Preamble1 = lunchMenusPage.Preamble1;
-                page.Preamble2 = lunchMenusPage.Preamble2;
-            }
-
-            return lunchMenuPages;
-        }
-
         /// <summary>
         /// Gets the lunch menu of the week.
         /// </summary>
@@ -56,7 +42,7 @@ namespace Logikfabrik.Felice.Helpers
             var year = date.Year;
             var week = this.dateHelper.GetWeekOfYearISO8601(date);
 
-            return GetLunchMenuOfTheWeek(year, week);
+            return this.GetLunchMenuOfTheWeek(year, week);
         }
 
         /// <summary>
@@ -67,7 +53,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The lunch menu of the week.</returns>
         public LunchMenu GetLunchMenuOfTheWeek(int year, int week)
         {
-            return GetLunchMenus().FirstOrDefault(m => IsMatch(m, year, week));
+            return this.GetLunchMenus().FirstOrDefault(m => IsMatch(m, year, week));
         }
 
         public IEnumerable<LunchMenu> GetTheNext5LunchMenus(DateTime date)
@@ -75,7 +61,7 @@ namespace Logikfabrik.Felice.Helpers
             var year = date.Year;
             var week = this.dateHelper.GetWeekOfYearISO8601(date);
 
-            var lunchMenus = GetLunchMenus().OrderBy(m => m.Year).ThenBy(m => m.Week);
+            var lunchMenus = this.GetLunchMenus().OrderBy(m => m.Year).ThenBy(m => m.Week);
 
             return lunchMenus.SkipWhile(m => m.Year != year && m.Week != week).Take(5);
         }
@@ -88,7 +74,7 @@ namespace Logikfabrik.Felice.Helpers
         public string GetDishOfTheDay(DateTime date)
         {
             var day = this.dateHelper.GetDayOfWeek(date);
-            var menu = GetLunchMenuOfTheWeek(date);
+            var menu = this.GetLunchMenuOfTheWeek(date);
 
             if (menu == null)
             {
@@ -134,6 +120,20 @@ namespace Logikfabrik.Felice.Helpers
         private static bool IsMatch(LunchMenu menu, int year, int week)
         {
             return menu.Year == year && menu.Week == week;
+        }
+
+        private IEnumerable<LunchMenu> GetLunchMenus()
+        {
+            var lunchMenusPage = this.pageHelper.GetPageOfType<LunchMenus>();
+            var lunchMenuPages = this.pageHelper.GetChildPagesOfType<LunchMenus, LunchMenu>().ToArray();
+
+            foreach (var page in lunchMenuPages)
+            {
+                page.Preamble1 = lunchMenusPage.Preamble1;
+                page.Preamble2 = lunchMenusPage.Preamble2;
+            }
+
+            return lunchMenuPages;
         }
     }
 }

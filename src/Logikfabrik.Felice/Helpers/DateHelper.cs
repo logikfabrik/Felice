@@ -101,7 +101,7 @@ namespace Logikfabrik.Felice.Helpers
             // The 28th of December will always fall within the last week, according to ISO 8601.
             var date = new DateTime(year, 12, 28);
 
-            return GetWeekOfYearISO8601(date);
+            return this.GetWeekOfYearISO8601(date);
         }
 
         private static DateTime FirstDateOfWeek(int year, int week)
@@ -133,7 +133,7 @@ namespace Logikfabrik.Felice.Helpers
 
             var c = (int)from;
             var d = (int)to;
-            var n = (7 - c + d);
+            var n = 7 - c + d;
 
             return (n > 7) ? n % 7 : n;
         }

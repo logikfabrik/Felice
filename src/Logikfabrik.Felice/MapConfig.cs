@@ -1,17 +1,23 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using AutoMapper;
-using Logikfabrik.Felice.Helpers;
-using Logikfabrik.Felice.Models;
-using Logikfabrik.Felice.ViewModels;
-using Logikfabrik.Umbraco.Jet.Maps;
-using umbraco.interfaces;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="MapConfig.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice
 {
+    using System;
+    using System.Text.RegularExpressions;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using AutoMapper;
+    using Helpers;
+    using Models;
+    using umbraco.interfaces;
+    using Umbraco.Jet.Maps;
+    using ViewModels;
+
     public static class MapConfig
     {
         public static void RegisterMaps()

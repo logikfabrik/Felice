@@ -1,10 +1,16 @@
-﻿using System;
-using Logikfabrik.Felice.DataTypes;
-using Logikfabrik.Felice.Models;
-using Logikfabrik.Umbraco.Jet.Maps;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="SettingsHelper.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.Helpers
 {
+    using System;
+    using DataTypes;
+    using Models;
+    using Umbraco.Jet.Maps;
+
     public class SettingsHelper
     {
         private readonly Lazy<Settings> settings;
@@ -12,9 +18,11 @@ namespace Logikfabrik.Felice.Helpers
         public SettingsHelper(IPageHelper pageHelper)
         {
             if (pageHelper == null)
+            {
                 throw new ArgumentNullException("pageHelper");
+            }
 
-            settings = new Lazy<Settings>(pageHelper.GetPageOfType<Settings>);
+            this.settings = new Lazy<Settings>(pageHelper.GetPageOfType<Settings>);
         }
 
         /// <summary>
@@ -23,7 +31,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The street address.</returns>
         public string GetStreetAddress()
         {
-            return settings.Value == null ? null : settings.Value.StreetAddress;
+            return this.settings.Value == null ? null : this.settings.Value.StreetAddress;
         }
 
         /// <summary>
@@ -32,7 +40,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The zip code.</returns>
         public int GetZipCode()
         {
-            return settings.Value == null ? default(int) : settings.Value.ZipCode;
+            return this.settings.Value == null ? default(int) : this.settings.Value.ZipCode;
         }
 
         /// <summary>
@@ -41,7 +49,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The city.</returns>
         public string GetCity()
         {
-            return settings.Value == null ? null : settings.Value.City;
+            return this.settings.Value == null ? null : this.settings.Value.City;
         }
 
         /// <summary>
@@ -50,7 +58,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The phone number.</returns>
         public string GetPhoneNumber()
         {
-            return settings.Value == null ? null : settings.Value.PhoneNumber;
+            return this.settings.Value == null ? null : this.settings.Value.PhoneNumber;
         }
 
         /// <summary>
@@ -59,10 +67,12 @@ namespace Logikfabrik.Felice.Helpers
         /// <returns>The opening hours.</returns>
         public OpeningHours GetOpeningHours()
         {
-            if (settings.Value == null)
+            if (this.settings.Value == null)
+            {
                 return new OpeningHours();
+            }
 
-            var openingHours = settings.Value.OpeningHours;
+            var openingHours = this.settings.Value.OpeningHours;
 
             return openingHours ?? new OpeningHours();
         }
@@ -72,10 +82,12 @@ namespace Logikfabrik.Felice.Helpers
         /// </summary>
         public GeoCoordinates GetMapCoordinates()
         {
-            if (settings.Value == null)
+            if (this.settings.Value == null)
+            {
                 return null;
+            }
 
-            var mapCoordinates = settings.Value.MapCoordinates;
+            var mapCoordinates = this.settings.Value.MapCoordinates;
 
             return mapCoordinates;
         }

@@ -1,9 +1,15 @@
-﻿namespace Logikfabrik.Felice.ViewModels
+﻿//----------------------------------------------------------------------------------
+// <copyright file="MenuItemViewModel.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
+
+namespace Logikfabrik.Felice.ViewModels
 {
     public class MenuItemViewModel
     {
         /// <summary>
-        /// Get or sets the URL.
+        /// Gets or sets the URL.
         /// </summary>
         public string Url { get; set; }
 

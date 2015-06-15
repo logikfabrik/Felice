@@ -1,7 +1,16 @@
-﻿using System.Collections.Generic;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="EatWithUsPageViewModel.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
 
 namespace Logikfabrik.Felice.ViewModels
 {
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Eat with us page view model.
+    /// </summary>
     public class EatWithUsPageViewModel : BasePageViewModel
     {
         /// <summary>
