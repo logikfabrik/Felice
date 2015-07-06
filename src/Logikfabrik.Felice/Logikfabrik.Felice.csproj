@@ -265,6 +265,7 @@
     <Compile Include="Controllers\FindUsPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OpeningHoursApiController.cs" />
     <Compile Include="Controllers\OpeningHoursController.cs" />
     <Compile Include="Controllers\WeekMenuController.cs" />
     <Compile Include="DataTypes\OpeningHour.cs" />
