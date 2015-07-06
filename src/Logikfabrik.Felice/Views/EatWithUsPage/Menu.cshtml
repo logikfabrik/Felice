@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<Logikfabrik.Felice.ViewModels.MenuDishViewModel>
 
-<section class="">
+<section class="a-la-carte">
+    <h4>A la carte</h4>
     <ul>
         @foreach (var dish in Model)
         {
-            <li>@dish.Name</li>
+            <li>
+                <h5>@dish.Name, @dish.Price.ToString("0.00") SEK</h5>
+                <p>@dish.Description</p>
+            </li>
         }
     </ul>
 </section>

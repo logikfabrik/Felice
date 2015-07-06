@@ -16,6 +16,12 @@ namespace Logikfabrik.Felice.Models
     public class MenuDish
     {
         /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        [ScaffoldColumn(false)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Gets or sets the description.
         /// </summary>
         [Display(

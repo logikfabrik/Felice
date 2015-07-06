@@ -52,18 +52,28 @@
         function getOpeningHour() {
             return {
                 type: 'dayOfWeek',
+                dayOfWeek: 0,
                 from: {
-                    weekday: 0,
                     hours: '00',
                     minutes: '00'
                 },
                 to: {
-                    weekday: 0,
                     hours: '00',
                     minutes: '00'
                 }
             };
         }
+
+        function isValid(openingHour) {
+            switch (openingHour.type) {
+                case 'date':
+                    return !_.isEmpty(openingHour.name) && !_.isEmpty(openingHour.date);
+                case 'dayOfWeek':
+                    return !_.isEmpty(openingHour.name);
+                default:
+                    return false;
+            }
+        };
 
         $scope.config = {
             hours: getHours(),
@@ -91,8 +101,11 @@
                     return null;
             }
         };
-
+        
         $scope.add = function (openingHour) {
+            if (!isValid(openingHour))
+                return;
+
             var clone = JSON.parse(JSON.stringify(openingHour));
 
             $scope.model.value.push(clone);
