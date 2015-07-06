@@ -1,5 +1,5 @@
 ﻿//----------------------------------------------------------------------------------
-// <copyright file="Global.asax" company="Logikfabrik">
+// <copyright file="Global.asax.cs" company="Logikfabrik">
 //     Copyright (c) 2015 anton(at)logikfabrik.se
 // </copyright>
 //----------------------------------------------------------------------------------

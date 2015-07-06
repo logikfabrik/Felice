@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿//----------------------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="Logikfabrik">
+//     Copyright (c) 2015 anton(at)logikfabrik.se
+// </copyright>
+//----------------------------------------------------------------------------------
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
