@@ -9,24 +9,24 @@
     <div class="opening-hour">
 
         <div class="setting">
-            <label for="name">Name</label> <input id="name" ng-model="openingHour.name" type="text" />
+            <label for="name">{{config.localization.name}}</label> <input id="name" ng-model="openingHour.name" type="text" />
         </div>
         
         <div class="setting">
-            <input type="radio" name="type" id="type-date" ng-model="openingHour.type" value="date" /> <label for="type-date">Date</label>
-            <input type="radio" name="type" id="type-day-of-week" ng-model="openingHour.type" value="dayOfWeek" /> <label for="type-day-of-week">Day of week</label>
+            <input type="radio" name="type" id="type-date" ng-model="openingHour.type" value="date" /> <label for="type-date">{{config.localization.date}}</label>
+            <input type="radio" name="type" id="type-day-of-week" ng-model="openingHour.type" value="dayOfWeek" /> <label for="type-day-of-week">{{config.localization.dayOfWeek}}</label>
         </div>
 
         <div class="setting" ng-show="openingHour.type == 'date'">
-            <label for="date">Date</label> <input id="date" ng-model="openingHour.date" type="date" />
+            <label for="date">{{config.localization.date}}</label> <input id="date" ng-model="openingHour.date" type="date" />
         </div>
         
         <div class="setting" ng-show="openingHour.type == 'dayOfWeek'">
-            <label for="day-of-week">Day of week</label> <select id="day-of-week" ng-model="openingHour.dayOfWeek" ng-options="dayOfWeek.value as dayOfWeek.name for dayOfWeek in config.daysOfWeek" />
+            <label for="day-of-week">{{config.localization.dayOfWeek}}</label> <select id="day-of-week" ng-model="openingHour.dayOfWeek" ng-options="dayOfWeek.value as dayOfWeek.name for dayOfWeek in config.daysOfWeek" />
         </div>
 
         <div class="setting">
-            <label for="from-hours">From</label>
+            <label for="from-hours">{{config.localization.from}}</label>
             <div>
                 <label for="from-hours">HH</label> <select id="from-hours" ng-model="openingHour.from.hours" ng-options="hour for hour in config.hours" />
                 <label for="from-minutes">mm</label> <select id="from-minutes" ng-model="openingHour.from.minutes" ng-options="minute for minute in config.minutes" />
@@ -34,14 +34,14 @@
         </div>
 
         <div class="setting">
-            <label for="to-hours">To</label>
+            <label for="to-hours">{{config.localization.to}}</label>
             <div>
                 <label for="to-hours">HH</label> <select id="to-hours" ng-model="openingHour.to.hours" ng-options="hour for hour in config.hours" />
                 <label for="to-minutes">mm</label> <select id="to-minutes" ng-model="openingHour.to.minutes" ng-options="minute for minute in config.minutes" />
             </div>
         </div>
         
-        <a ng-href="" ng-click="add(openingHour)"><i class="icon-add"></i> Add</a>
+        <a ng-href="" ng-click="add(openingHour)"><i class="icon-add"></i> {{config.localization.add}}</a>
 
     </div>
 

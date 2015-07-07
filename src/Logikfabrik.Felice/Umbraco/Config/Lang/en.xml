@@ -988,4 +988,12 @@ To manage your website, simply open the umbraco back office and start adding con
     <key alias="mapsTitle">Map Search</key>
     <key alias="mapsPlaceholder">Search for places or addresses</key>
   </area>
+  <area alias="felice">
+    <key alias="name">Name</key>
+    <key alias="date">Date</key>
+    <key alias="dayOfWeek">Day of week</key>
+    <key alias="from">From</key>
+    <key alias="to">To</key>
+    <key alias="add">Add</key>
+  </area>
 </language>

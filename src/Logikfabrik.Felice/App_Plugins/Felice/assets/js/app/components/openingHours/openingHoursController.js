@@ -1,5 +1,5 @@
-﻿angular.module('umbraco').controller('openingHoursController', ['$scope', '_', 'sprintf',
-    function ($scope, _, sprintf) {
+﻿angular.module('umbraco').controller('openingHoursController', ['$scope', '_', 'sprintf', 'localizationService',
+    function ($scope, _, sprintf, localizationService) {
 
         function getHours() {
             var hours = [];
@@ -78,8 +78,40 @@
         $scope.config = {
             hours: getHours(),
             minutes: getMinutes(),
-            daysOfWeek: getDaysOfWeek()
+            daysOfWeek: getDaysOfWeek(),
+            localization: {
+                name: null,
+                date: null,
+                dayOfWeek: null,
+                from: null,
+                to: null,
+                add: null
+            }
         };
+        
+        localizationService.localize('felice_name').then(function(value) {
+            $scope.config.localization.name = value;
+        });
+        
+        localizationService.localize('felice_date').then(function(value) {
+            $scope.config.localization.date = value;
+        });
+        
+        localizationService.localize('felice_dayOfWeek').then(function(value) {
+            $scope.config.localization.dayOfWeek = value;
+        });
+
+        localizationService.localize('felice_from').then(function(value) {
+            $scope.config.localization.from = value;
+        });
+
+        localizationService.localize('felice_to').then(function(value) {
+            $scope.config.localization.to = value;
+        });
+
+        localizationService.localize('felice_add').then(function(value) {
+            $scope.config.localization.add = value;
+        });
 
         $scope.openingHour = getOpeningHour();
 

@@ -882,4 +882,12 @@
     <key alias="mapsTitle">Kartsökning</key>
     <key alias="mapsPlaceholder">Sök efter platser eller adresser</key>
   </area>
+  <area alias="felice">
+    <key alias="name">Namn</key>
+    <key alias="date">Datum</key>
+    <key alias="dayOfWeek">Veckodag</key>
+    <key alias="from">Från</key>
+    <key alias="to">Till</key>
+    <key alias="add">Lägg till</key>
+  </area>
 </language>
