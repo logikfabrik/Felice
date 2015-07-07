@@ -1,5 +1,5 @@
 ﻿app.factory('dishOfTheDayFactory', ['$http', function ($http) {
-    var url = '/api/Dish';
+    var url = '/api/Dish/GetDishOfTheDay';
     var dataFactory = {};
 
     dataFactory.getDishOfTheDay = function () {

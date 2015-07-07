@@ -80,6 +80,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <summary>
         /// Gets the map coordinates.
         /// </summary>
+        /// <returns>The map coordinates.</returns>
         public GeoCoordinates GetMapCoordinates()
         {
             if (this.settings.Value == null)

@@ -17,7 +17,7 @@ namespace Logikfabrik.Felice
             // Custom HTTP routes.
             RouteTable.Routes.MapHttpRoute(
                 "DefaultApi", 
-                "api/{controller}/{id}", 
+                "api/{controller}/{action}/{id}", 
                 new { id = RouteParameter.Optional });
             
             // Custom MVC routes.

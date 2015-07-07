@@ -61,7 +61,7 @@ namespace Logikfabrik.Felice.Helpers
         /// <summary>
         /// Gets whether or not the opening hours are for the current date.
         /// </summary>
-        /// <param name="openingHours"></param>
+        /// <param name="openingHours">The opening hours.</param>
         /// <param name="date">The current date.</param>
         /// <returns>True it the opening hours are for the current date; otherwise false.</returns>
         private bool IsForDate(OpeningHour openingHours, DateTime date)

@@ -14,6 +14,7 @@
         '~/App_Plugins/Felice/assets/js/vendor/sprintf/sprintf.min.js',
         '~/App_Plugins/Felice/assets/js/app/factories/lodashFactory.js',
         '~/App_Plugins/Felice/assets/js/app/factories/sprintfFactory.js',
+        '~/App_Plugins/Felice/assets/js/app/components/openingHours/openingHoursFactory.js',
         '~/App_Plugins/Felice/assets/js/app/components/openingHours/openingHoursController.js'
     ],
     css: [

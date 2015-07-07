@@ -1,5 +1,5 @@
 ﻿app.factory('openingHoursOfTheDayFactory', ['$http', function ($http) {
-    var url = '/api/OpeningHours';
+    var url = '/api/OpeningHours/GetOpeningHoursOfTheDay';
     var dataFactory = {};
 
     dataFactory.getOpeningHoursOfTheDay = function () {

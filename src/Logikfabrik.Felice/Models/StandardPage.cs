@@ -19,7 +19,7 @@ namespace Logikfabrik.Felice.Models
     public class StandardPage : BasePage
     {
         /// <summary>
-        /// Gets or sets umbracoNaviHide.
+        /// Gets or sets a value indicating whether the page is navigable or not.
         /// </summary>
         [Display(Name = "Navigable")]
         [ScaffoldColumn(true)]

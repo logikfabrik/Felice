@@ -1,155 +1,142 @@
-﻿angular.module('umbraco').controller('openingHoursController', ['$scope', '_', 'sprintf', 'localizationService',
-    function ($scope, _, sprintf, localizationService) {
+﻿angular.module('umbraco')
+    .controller('openingHoursController', ['$scope', '_', 'sprintf', 'openingHoursFactory', 'localizationService',
+        function ($scope, _, sprintf, openingHoursFactory, localizationService) {
+            function getHours() {
+                var hours = [];
 
-        function getHours() {
-            var hours = [];
+                for (var i = 0; i < 24; i++) {
+                    var h = i.toString();
 
-            for (var i = 0; i < 24; i++) {
-                var h = i.toString();
+                    if (h.length < 2)
+                        hours.push('0' + h);
+                    else
+                        hours.push(h);
+                }
 
-                if (h.length < 2)
-                    hours.push('0' + h);
-                else
-                    hours.push(h);
+                return hours;
             }
 
-            return hours;
-        }
+            function getMinutes() {
+                var minutes = [];
 
-        function getMinutes() {
-            var minutes = [];
+                for (var i = 0; i < 12; i++) {
+                    var m = (i * 5).toString();
 
-            for (var i = 0; i < 12; i++) {
-                var m = (i * 5).toString();
+                    if (m.length < 2)
+                        minutes.push('0' + m);
+                    else
+                        minutes.push(m);
+                }
 
-                if (m.length < 2)
-                    minutes.push('0' + m);
-                else
-                    minutes.push(m);
+                return minutes;
             }
 
-            return minutes;
-        }
+            function getDayName(day) {
+                return _.result(_.findWhere($scope.config.daysOfWeek, { 'value': day }), 'name');
+            }
 
-        function getDaysOfWeek() {
-            return [
-                { name: 'Sunday', value: 0 },
-                { name: 'Monday', value: 1 },
-                { name: 'Tuesday', value: 2 },
-                { name: 'Wednesday', value: 3 },
-                { name: 'Thursday', value: 4 },
-                { name: 'Friday', value: 5 },
-                { name: 'Saturday', value: 6 }
-            ];
-        }
+            function getOpeningHour() {
+                return {
+                    type: 'dayOfWeek',
+                    dayOfWeek: 0,
+                    from: {
+                        hours: '00',
+                        minutes: '00'
+                    },
+                    to: {
+                        hours: '00',
+                        minutes: '00'
+                    }
+                };
+            }
 
-        function getDayName(day) {
-            var daysOfWeek = getDaysOfWeek();
+            function isValid(openingHour) {
+                switch (openingHour.type) {
+                    case 'date':
+                        return !_.isEmpty(openingHour.name) && !_.isEmpty(openingHour.date);
+                    case 'dayOfWeek':
+                        return !_.isEmpty(openingHour.name);
+                    default:
+                        return false;
+                }
+            }
 
-            return _.result(_.findWhere(daysOfWeek, { 'value': day }), 'name');
-        }
-
-        function getOpeningHour() {
-            return {
-                type: 'dayOfWeek',
-                dayOfWeek: 0,
-                from: {
-                    hours: '00',
-                    minutes: '00'
-                },
-                to: {
-                    hours: '00',
-                    minutes: '00'
+            $scope.config = {
+                hours: getHours(),
+                minutes: getMinutes(),
+                daysOfWeek: null,
+                localization: {
+                    name: null,
+                    date: null,
+                    dayOfWeek: null,
+                    from: null,
+                    to: null,
+                    add: null
                 }
             };
-        }
+            
+            openingHoursFactory.getDayNames().success(function (resp) {
+                $scope.config.daysOfWeek = resp.Data;
+            });
 
-        function isValid(openingHour) {
-            switch (openingHour.type) {
-                case 'date':
-                    return !_.isEmpty(openingHour.name) && !_.isEmpty(openingHour.date);
-                case 'dayOfWeek':
-                    return !_.isEmpty(openingHour.name);
-                default:
-                    return false;
-            }
-        };
+            localizationService.localize('felice_name').then(function (value) {
+                $scope.config.localization.name = value;
+            });
 
-        $scope.config = {
-            hours: getHours(),
-            minutes: getMinutes(),
-            daysOfWeek: getDaysOfWeek(),
-            localization: {
-                name: null,
-                date: null,
-                dayOfWeek: null,
-                from: null,
-                to: null,
-                add: null
-            }
-        };
-        
-        localizationService.localize('felice_name').then(function(value) {
-            $scope.config.localization.name = value;
-        });
-        
-        localizationService.localize('felice_date').then(function(value) {
-            $scope.config.localization.date = value;
-        });
-        
-        localizationService.localize('felice_dayOfWeek').then(function(value) {
-            $scope.config.localization.dayOfWeek = value;
-        });
+            localizationService.localize('felice_date').then(function (value) {
+                $scope.config.localization.date = value;
+            });
 
-        localizationService.localize('felice_from').then(function(value) {
-            $scope.config.localization.from = value;
-        });
+            localizationService.localize('felice_dayOfWeek').then(function (value) {
+                $scope.config.localization.dayOfWeek = value;
+            });
 
-        localizationService.localize('felice_to').then(function(value) {
-            $scope.config.localization.to = value;
-        });
+            localizationService.localize('felice_from').then(function (value) {
+                $scope.config.localization.from = value;
+            });
 
-        localizationService.localize('felice_add').then(function(value) {
-            $scope.config.localization.add = value;
-        });
+            localizationService.localize('felice_to').then(function (value) {
+                $scope.config.localization.to = value;
+            });
 
-        $scope.openingHour = getOpeningHour();
+            localizationService.localize('felice_add').then(function (value) {
+                $scope.config.localization.add = value;
+            });
 
-        if (!$scope.model.value)
-            $scope.model.value = [];
-        else {
-            $scope.model.value = [].concat($scope.model.value);
-        }
-
-        $scope.format = function (openingHour) {
-            switch (openingHour.type) {
-                case 'date':
-                    return sprintf('%s %s %s:%s-%s:%s', openingHour.name, openingHour.date, openingHour.from.hours, openingHour.from.minutes, openingHour.to.hours, openingHour.to.minutes, openingHour.open);
-
-                case 'dayOfWeek':
-                    return sprintf('%s %s %s:%s-%s:%s', openingHour.name, getDayName(openingHour.dayOfWeek), openingHour.from.hours, openingHour.from.minutes, openingHour.to.hours, openingHour.to.minutes);
-
-                default:
-                    return null;
-            }
-        };
-        
-        $scope.add = function (openingHour) {
-            if (!isValid(openingHour))
-                return;
-
-            var clone = JSON.parse(JSON.stringify(openingHour));
-
-            $scope.model.value.push(clone);
             $scope.openingHour = getOpeningHour();
-        };
 
-        $scope.remove = function (openingHour) {
-            var index = _.indexOf($scope.model.value, openingHour);
+            if (!$scope.model.value)
+                $scope.model.value = [];
+            else
+                $scope.model.value = [].concat($scope.model.value);
 
-            if (index == -1)
-                return;
+            $scope.format = function (openingHour) {
+                switch (openingHour.type) {
+                    case 'date':
+                        return sprintf('%s %s %s:%s-%s:%s', openingHour.name, openingHour.date, openingHour.from.hours, openingHour.from.minutes, openingHour.to.hours, openingHour.to.minutes, openingHour.open);
+                    case 'dayOfWeek':
+                        return sprintf('%s %s %s:%s-%s:%s', openingHour.name, getDayName(openingHour.dayOfWeek), openingHour.from.hours, openingHour.from.minutes, openingHour.to.hours, openingHour.to.minutes);
+                    default:
+                        return null;
+                }
+            };
 
-            $scope.model.value.splice(index, 1);
-        };
-    }]);
+            $scope.add = function (openingHour) {
+                if (!isValid(openingHour))
+                    return;
+
+                var clone = JSON.parse(JSON.stringify(openingHour));
+
+                $scope.model.value.push(clone);
+                $scope.openingHour = getOpeningHour();
+            };
+
+            $scope.remove = function (openingHour) {
+                var index = _.indexOf($scope.model.value, openingHour);
+
+                if (index == -1)
+                    return;
+
+                $scope.model.value.splice(index, 1);
+            };
+        }]);

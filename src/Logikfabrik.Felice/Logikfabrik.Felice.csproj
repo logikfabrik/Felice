@@ -265,7 +265,6 @@
     <Compile Include="Controllers\FindUsPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\OpeningHoursApiController.cs" />
     <Compile Include="Controllers\OpeningHoursController.cs" />
     <Compile Include="Controllers\WeekMenuController.cs" />
     <Compile Include="DataTypes\OpeningHour.cs" />
@@ -317,6 +316,7 @@
     <Folder Include="Assets\img\vendor\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Felice\assets\js\app\components\openingHours\openingHoursFactory.js" />
     <Content Include="App_Plugins\Felice\assets\js\vendor\sprintf\sprintf.min.map" />
     <Content Include="App_Plugins\Felice\package.manifest" />
     <Content Include="App_Plugins\Logikfabrik.Umbraco.Jet.Maps\app\app.js" />

@@ -62,7 +62,7 @@ namespace Logikfabrik.Felice.Models
         public string MetaKeywords { get; set; }
 
         /// <summary>
-        /// Gets or sets umbracoNaviHide.
+        /// Gets or sets a value indicating whether the page is navigable or not.
         /// </summary>
         [ScaffoldColumn(false)]
         // ReSharper disable once InconsistentNaming
