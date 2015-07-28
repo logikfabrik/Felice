@@ -352,6 +352,7 @@
     <Content Include="Assets\packages\leaflet-0.7.3\images\marker-shadow.png" />
     <Content Include="Assets\packages\leaflet-0.7.3\leaflet.css" />
     <Content Include="Assets\packages\leaflet-0.7.3\leaflet.js" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
   </ItemGroup>
   <ItemGroup>
@@ -442,6 +443,7 @@ Robocopy "$(ProjectDir)Config" "$(SolutionDir)Logikfabrik.Felice.Web\Config" /s 
 Robocopy "$(ProjectDir)Umbraco" "$(SolutionDir)Logikfabrik.Felice.Web\Umbraco" /s /is
 Robocopy "$(ProjectDir)Views" "$(SolutionDir)Logikfabrik.Felice.Web\Views" /s /is
 Copy "$(ProjectDir)\Global.asax" "$(SolutionDir)Logikfabrik.Felice.Web\Global.asax"
+Copy "$(ProjectDir)\favicon.ico" "$(SolutionDir)Logikfabrik.Felice.Web\favicon.ico"
 IF %25errorlevel%25 LEQ 1 EXIT 0 ELSE EXIT %25errorlevel%25</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

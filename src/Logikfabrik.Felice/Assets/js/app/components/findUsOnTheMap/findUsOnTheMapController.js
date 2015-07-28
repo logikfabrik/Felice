@@ -1,7 +1,7 @@
 ﻿app.controller('findUsOnTheMapController', ['$scope', 'lodash', 'leaflet',
     function ($scope, _, L) {
         $scope.init = function (lat, lng, address) {
-            L.Icon.Default.imagePath = '/Assets/packages/leaflet-0.7.3/images/';
+            L.Icon.Default.imagePath = '/Assets/packages/leaflet-0.7.3/images';
 
             var map = L.map('map', { zoomControl: false });
 
